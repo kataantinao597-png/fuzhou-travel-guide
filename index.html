@@ -8,50 +8,51 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-
 /* ===========================================
-   绂忓窞鏃呰鏀荤暐 路 B 鍨嬪疄鐢ㄥ伐鍏疯瑙変綋绯?   Inspired by: 椹瀺澧?路 瀵垮北鐭?路 鑼夎帀鑺?   =========================================== */
+   福州旅行攻略 · B 型实用工具视觉体系
+   Inspired by: 马鞍墙 · 寿山石 · 茉莉花
+   =========================================== */
 
 :root {
-  /* 瀵垮北鐭宠崝鏋濈櫧 鈥?娓╂殩搴曡壊 */
+  /* 寿山石荔枝白 — 温暖底色 */
   --fz-stone: #faf8f2;
   --fz-stone-warm: #f5f0e7;
-  /* 榛涚摝鐏?鈥?娣遍們鏂囧瓧 */
+  /* 黛瓦灰 — 深邃文字 */
   --fz-dark: #242729;
   --fz-dark-80: #4a4d4f;
   --fz-dark-60: #727577;
   --fz-dark-40: #9b9d9f;
   --fz-dark-15: #d4d5d5;
   --fz-dark-08: #e8e8e8;
-  /* 澶х孩琚嶇孩 鈥?楂樼骇鐐圭紑 */
+  /* 大红袍红 — 高级点缀 */
   --fz-red: #8c2425;
   --fz-red-light: #b84041;
-  /* 閲戠當閲?鈥?楂樹寒鏍囩 */
+  /* 金箔金 — 高亮标签 */
   --fz-gold: #c8a45c;
   --fz-gold-light: #e4d0a0;
   --fz-gold-pale: #f5ecd8;
-  /* 婕嗗櫒缁?鈥?鑷劧灞辨按 */
+  /* 漆器绿 — 自然山水 */
   --fz-jade: #5b7a6a;
   --fz-jade-light: #8faa98;
   --fz-jade-pale: #dce8e0;
-  /* 闂磋窛鏍呮牸 */
+  /* 间距栅格 */
   --grid: 8px;
-  /* 鍦嗚浣撶郴 鈥?妯℃嫙椹瀺澧欑嚂灏捐剨 */
+  /* 圆角体系 — 模拟马鞍墙燕尾脊 */
   --r-sm: 8px;
   --r-md: 16px;
   --r-lg: 24px;
   --r-xl: 32px;
   --r-card: 24px 4px 24px 4px;
   --r-card-alt: 4px 24px 4px 24px;
-  /* 闃村奖 */
+  /* 阴影 */
   --shadow-sm: 0 2px 8px rgba(36,39,41,0.04);
   --shadow-md: 0 8px 32px rgba(36,39,41,0.07);
   --shadow-lg: 0 16px 48px rgba(140,36,37,0.06);
-  /* 瀛椾綋 */
+  /* 字体 */
   --font-display: "Noto Serif SC", "SimSun", "STSong", serif;
   --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
   --font-accent: "KaiTi", "STKaiti", serif;
-  /* 鍔ㄧ敾 */
+  /* 动画 */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -68,7 +69,7 @@ body {
   overflow-x: hidden;
 }
 
-/* 瀹ｇ焊绾圭悊 */
+/* 宣纸纹理 */
 body::after {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   opacity: 0.35;
@@ -87,7 +88,8 @@ body::after {
 }
 
 /* ===========================================
-   Navigation 鈥?姣涚幓鐠冮《鏍?   =========================================== */
+   Navigation — 毛玻璃顶栏
+   =========================================== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   height: 60px;
@@ -119,7 +121,7 @@ body::after {
 .nav-links a.active { color: var(--fz-red); background: rgba(140,36,37,0.06); font-weight: 600; }
 
 /* ===========================================
-   Hero 鈥?绠€娲佸疄鐢ㄥ瀷
+   Hero — 简洁实用型
    =========================================== */
 .hero {
   min-height: 70vh; display: flex; align-items: center;
@@ -169,7 +171,7 @@ body::after {
 }
 .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,248,0.4); letter-spacing: 0.06em; }
 
-/* 椹瀺澧欏簳寮?*/
+/* 马鞍墙底弧 */
 .hero-arc {
   position: absolute; bottom: -2px; left: 0; right: 0; height: 64px;
   background: var(--fz-stone);
@@ -225,7 +227,8 @@ body::after {
 }
 
 /* ===========================================
-   Day Card 鈥?鏍稿績琛岀▼鍗?   =========================================== */
+   Day Card — 核心行程卡
+   =========================================== */
 .day-card {
   background: #fff;
   border-radius: var(--r-card);
@@ -236,7 +239,7 @@ body::after {
   transition: box-shadow 0.4s var(--ease);
 }
 .day-card:hover { box-shadow: var(--shadow-lg); }
-/* 椹瀺澧欏僵鏉￠《 */
+/* 马鞍墙彩条顶 */
 .day-card::before {
   content: ""; display: block; height: 4px;
   background: linear-gradient(90deg,
@@ -368,11 +371,6 @@ body::after {
   border: 1px solid rgba(59,125,216,0.12);
 }
 .stop-btn.navi:hover { background: rgba(59,125,216,0.12); }
-.stop-btn.didi {
-  color: #E85D04; background: rgba(232,93,4,0.06);
-  border: 1px solid rgba(232,93,4,0.15);
-}
-.stop-btn.didi:hover { background: rgba(232,93,4,0.14); }
 
 /* Transit connector */
 .stop-transit {
@@ -388,7 +386,7 @@ body::after {
 }
 
 /* ===========================================
-   More Cards 鈥?Bento Grid
+   More Cards — Bento Grid
    =========================================== */
 .more-grid {
   display: grid;
@@ -415,7 +413,7 @@ body::after {
 .more-card-image-wrapper {
   position: relative; overflow: hidden;
 }
-/* 缁㈡湰璐ㄦ劅鍙犲姞 */
+/* 绢本质感叠加 */
 .more-card-image-wrapper::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(200,164,92,0.04) 2px, rgba(200,164,92,0.04) 4px);
@@ -488,7 +486,7 @@ body::after {
 }
 
 /* ===========================================
-   Animations 鈥?Intersection Observer driven
+   Animations — Intersection Observer driven
    =========================================== */
 .fade-up {
   opacity: 0; transform: translateY(30px);
@@ -532,11 +530,12 @@ body::after {
   .more-grid { grid-template-columns: 1fr; }
   .nav-links a { font-size: 0.75rem; padding: 5px 10px; }
 }
-
 </style>
 </head>
 <body>
-<nav class="nav" id="navbar">
+
+<!-- Nav -->
+<nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">FOOCHOW.</a>
     <div class="nav-links">
@@ -547,153 +546,439 @@ body::after {
     </div>
   </div>
 </nav>
-<section class="hero">
+
+<!-- Hero -->
+<section class="hero" id="hero">
   <div class="hero-inner">
-    <div class="hero-label">榕城记</div>
-    <h1>有<em>福</em>之州<br>慢行两日</h1>
-    <p class="hero-subtitle">白墙黛瓦，跌进马鞍墙的蜿蜒流线；一盏茉莉，在坊巷的慢时光里偷闲。<br>「七溜八溜，不离福州。」</p>
+    <div class="hero-label fade-up">榕</div>
+    <h1 class="fade-up">有福之州<em>，</em>慢行两日</h1>
+    <p class="hero-desc fade-up">白墙黛瓦，跌进马鞍墙的蜿蜒流线；一盏茉莉，在坊巷的慢时光里偷闲。<br>「七溜八溜，不离福州。」</p>
+    <div class="hero-stats fade-up">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2天</div>
+        <div class="hero-stat-label">建议游玩</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">8+</div>
+        <div class="hero-stat-label">核心景点</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">在地小吃</div>
+      </div>
+    </div>
   </div>
+  <div class="hero-arc"></div>
 </section>
 
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">2天</div><div class="stat-label">建议游玩</div></div>
-  <div class="stat-item"><div class="stat-num">8+</div><div class="stat-label">核心景点</div></div>
-  <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">在地小吃</div></div>
-</div>
-
 <div class="wrapper">
-  <div class="info-row">
-    <div class="info-card"><h4>🏠 住宿首选：东街口 / 南门兜</h4><p>地铁1号线与2号线交汇处，步行三坊七巷5分钟、西湖10分钟。宵夜选择极多，福州老城心脏地带。</p></div>
-    <div class="info-card"><h4>📮 最佳季节：10月–次年4月</h4><p>避开福州炎热夏季。春秋气温宜人（15-25℃），茉莉花秋季飘香，冬至前后有温泉季活动。</p></div>
-    <div class="info-card"><h4>🚗 市内交通：e福州APP</h4><p>地铁扫码9折，公交线路四通八达。共享单车覆盖市区，短途代步首选。</p></div>
-    <div class="info-card"><h4>☀️ 防晒与补水</h4><p>福州夏季长且炎热（5-10月），体感温度常超35℃。务必涂防晒、戴帽子，每天至少喝2L水。</p></div>
-    <div class="info-card"><h4>👟 穿运动鞋是刚需</h4><p>福道镂空钢架、烟台山坡道、上下杭石板路——薄底鞋、高跟鞋是对自己脚的不尊重。</p></div>
-    <div class="info-card"><h4>🕰 老字号营业时间</h4><p>很多老店下午2-4点休息，卖完即关门。建议上午11点前或下午5点后前往。</p></div>
-    <div class="info-card"><h4>📱 必备APP</h4><p>「e福州」扫码乘地铁9折；「大众点评」看餐厅评价；「高德地图」步行导航在福州比百度更准。</p></div>
-    <div class="info-card"><h4>🍵 茉莉花茶伴手礼</h4><p>福州是世界茉莉花茶发源地。上下杭和南后街茶庄可试饮后购买，推荐「春伦」或「中莉」，¥50-150/罐。</p></div>
-    <div class="info-card"><h4>🗣 语言与沟通</h4><p>福州话（闽东语）非常难懂，但市区内普通话完全通用。一句「丫霸」（很棒）可以拉近距离！</p></div>
-  </div>
-  <div class="section-header" id="day1">
-    <div class="section-badge">DAY 1</div>
-    <div class="section-title">古韵与绿意</div>
-    <p class="section-subtitle">三坊七巷寻古韵，福道穿林揽绿意，闽江畔吹晚风。第一天的主题是「慢」。</p>
-  </div>
 
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">1</span><span class="stop-title">三坊七巷<small>半部中国近代史</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 3小时</span><span>🚗 东街口站C口</span><span class="meta-ticket">🎟 街区免费 / 小黄楼¥20</span></div>
-    <p class="stop-desc">被誉为<strong>「明清建筑博物馆」</strong>，占地约40公顷，保留200余座明清古建筑。林则徐、严复、冰心、林觉民等皆出于此。<br><strong>推荐路线：</strong>南后街（主街）→ 郎官巷（严复故居、二梅书屋）→ 黄巷（小黄楼，门票¥20，精致园林）→ 塔巷（特色小店）→ 安泰河畔（网红爱心树）——江南水乡即视感。<br><strong>▸ 不要只走主街，一定要拐进两边的巷子里，精华全在里面。</strong></p>
-    <div class="stop-tags"><span class="stop-tag food">同利肉燕</span><span class="stop-tag food">永和鱼丸</span><span class="stop-tag food">没牙伯花生汤</span><span class="stop-tag spot">小黄楼</span><span class="stop-tag spot">爱心树</span><span class="stop-tag tip">牛滑/捞化</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.2964,26.0837,三坊七巷&mode=walk&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://api.map.baidu.com/direction?destination=latlng:26.0837,119.2964|name:三坊七巷&coord_type=gcj02&mode=walking&output=html&src=fztravel" target="_blank" class="btn btn-outline">🗺 百度导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0837&end_lng=119.2964&end_name=%E4%B8%89%E5%9D%8A%E4%B8%83%E5%B7%B7" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
+<!-- Quick Info -->
+<div class="quick-bar">
+  <div class="quick-item fade-up">
+    <div class="quick-item-icon i-place">🏠</div>
+    <div>
+      <h4>住宿首选：东街口 / 南后街</h4>
+      <p>地铁1号线与2号线交汇处，步行三坊七巷5分钟、西湖10分钟。夜宵选择极多，福州老城心脏地带。</p>
     </div>
   </div>
-
-  <div class="transport-note"><span class="icon">🚌</span> 公交约20分钟 / 🚖 打车约¥15 → 福道3号入口（梅峰山山地公园）</div>
-
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">2</span><span class="stop-title">福道<small>空中森林步道</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 2小时</span><span class="meta-ticket">🎟 免费</span><span class="warn-inline">👟 必须运动鞋</span></div>
-    <p class="stop-desc">全球最美步道之一，全长约19公里，全线采用<strong>镂空钢架结构</strong>，穿行于森林树冠之间。脚下是山谷，两侧是原生次生林——城市中央的空中走廊。<br><strong>推荐走法：</strong>从<strong>3号入口（梅峰山山地公园）</strong>进入，不走全程，走到<strong>金牛山体育公园</strong>段即可（约5公里），该段视野最开阔、拍照最出片。<br><strong>⚠️ 务必穿运动鞋！</strong>镂空钢架对薄底鞋极不友好。避开正午12-14点暴晒时段，建议14:30后进入。</p>
-    <div class="stop-tags"><span class="stop-tag tip">金牛山段最佳</span><span class="stop-tag tip">建议14:30后</span><span class="stop-tag tip">运动鞋刚需</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.2810,26.0850,福道3号入口&mode=walk&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0850&end_lng=119.2810&end_name=%E7%A6%8F%E9%81%933%E5%8F%B7%E5%8F%A3" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
+  <div class="quick-item fade-up">
+    <div class="quick-item-icon i-time">📅</div>
+    <div>
+      <h4>最佳季节：10月–次年4月</h4>
+      <p>避开福州炎热夏季。春秋气温宜人（15-25°C），茉莉花秋季飘香，冬至前后有温泉季活动。</p>
     </div>
   </div>
-
-  <div class="transport-note"><span class="icon">🚖</span> 打车约¥20（15分钟）→ 青年广场 / 🚌 公交至闽江公园站</div>
-
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">3</span><span class="stop-title">青年广场 & 闽江夜景<small>复古红砖楼 + 中洲岛日落</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 2-3小时（含晚餐）</span><span class="meta-ticket">🎟 免费</span></div>
-    <p class="stop-desc">青年会红砖楼：始建于1916年的百年红砖建筑，曾是福州基督教青年会会所。红砖拱廊极具胶片感，复古风拍照圣地。<br>傍晚沿闽江步道散步，对岸<strong>中洲岛</strong>的欧式城堡建筑在落日余晖中宛如布达佩斯。推荐<strong>18:30前到达</strong>，先拍白天的红砖楼，再等亮灯后拍闽江夜景。<br><strong>🍽 晚餐推荐：</strong>附近苍霞路、台江步行街有多家闽菜老店——荔枝肉、醉排骨、南煎肝是福州人待客三件套。</p>
-    <div class="stop-tags"><span class="stop-tag food">荔枝肉</span><span class="stop-tag food">南煎肝</span><span class="stop-tag spot">中洲岛</span><span class="stop-tag tip">18:30前到达</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.3078,26.0608,青年会红砖楼&mode=walk&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0608&end_lng=119.3078&end_name=%E9%9D%92%E5%B9%B4%E5%B9%BF%E5%9C%BA" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
+  <div class="quick-item fade-up">
+    <div class="quick-item-icon i-trans">🚇</div>
+    <div>
+      <h4>市内交通：「e福州」APP</h4>
+      <p>地铁扫码享9折，公交线路四通八达。共享单车覆盖市区，短途代步首选。</p>
     </div>
-  </div>
-  <div class="section-header" id="day2">
-    <div class="section-badge">DAY 2</div>
-    <div class="section-title">山海之间</div>
-    <p class="section-subtitle">登鼓山望东海，探马尾船政风云，夜游百年商埠上下杭。第二天走得更远、看得更深。</p>
-  </div>
-  <img src="https://images.unsplash.com/photo-1551004766-2a56b76464e4?auto=format&fit=crop&w=600&q=80" alt="鼓山" style="width:100%;max-width:600px;border-radius:var(--r-card);margin:16px auto;display:block;box-shadow:var(--shadow-md)">
-
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">1</span><span class="stop-title">鼓山<small>福州的城市阳台</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 3-4小时</span><span>🚗 2号线鼓山站</span><span class="meta-ticket">🎟 涌泉寺¥40 / 缆车单程¥50</span></div>
-    <p class="stop-desc">福州最负盛名的地标，海拔925米，因山顶巨石如鼓得名。山中有千年古刹<strong>涌泉寺</strong>（始建于908年），「闽刹之冠」，香火鼎盛。<br><strong>两种游玩方式：</strong><br>🥾 <strong>古道登山：</strong>从「鼓山十八景」古道上行，约1-1.5小时登顶。沿途<strong>摩崖石刻300余处</strong>——历代文人题刻，誉为「东南碑林」。<br>🚡 <strong>缆车上山：</strong>适合体力有限或时间紧，单程¥50，约20分钟到顶。<br><strong>⚠️ 建议早起出发（8:30前），避开10点后旅行团高峰。</strong></p>
-    <div class="stop-tags"><span class="stop-tag spot">涌泉寺</span><span class="stop-tag spot">摩崖石刻</span><span class="stop-tag tip">早起避高峰</span><span class="stop-tag tip">缆车¥50</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.3830,26.0590,鼓山涌泉寺&mode=car&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0590&end_lng=119.3830&end_name=%E9%BC%93%E5%B1%B1%E6%B6%8C%E6%B3%89%E5%AF%BA" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
-    </div>
-  </div>
-
-  <div class="transport-note"><span class="icon">🚖</span> 打车约¥30（30分钟）→ 马尾区船政文化景区</div>
-
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">2</span><span class="stop-title">船政文化景区<small>中国近代海军摇篮</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 2.5小时</span><span class="meta-ticket">🎟 博物馆免费 / 演出¥128起</span></div>
-    <p class="stop-desc">1866年左宗棠在此创办福州船政局，建中国第一艘千吨级蒸汽军舰<strong>「万年青」</strong>号。红砖厂房、百年轮机车间与闽江码头交织，<strong>工业风浓郁，极为出片</strong>。<br><strong>推荐顺序：</strong>船政文化博物馆 → 轮机车间 → 绘事院 → 罗星塔<br><strong>🎬 《最忆船政》沉浸式演出：</strong>大型实景演艺，光影与戏剧再现船政风云，强烈推荐（需提前购票，¥128起，建议提前一天预订）。</p>
-    <div class="stop-tags"><span class="stop-tag spot">轮机车间</span><span class="stop-tag spot">罗星塔</span><span class="stop-tag tip">最忆船政¥128</span><span class="stop-tag tip">工业风拍照</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.451,25.998,船政文化景区&mode=car&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=25.998&end_lng=119.451&end_name=%E8%88%B9%E6%94%BF%E6%96%87%E5%8C%96%E6%99%AF%E5%8C%BA" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
-    </div>
-  </div>
-
-  <div class="transport-note"><span class="icon">🚌</span> 公交约40分钟 / 🚖 打车约¥35 → 上下杭历史文化街区</div>
-  <img src="https://images.unsplash.com/photo-1580278702238-7bfeb9fd442c?auto=format&fit=crop&w=600&q=80" alt="上下杭" style="width:100%;max-width:600px;border-radius:var(--r-card);margin:16px auto;display:block;box-shadow:var(--shadow-md)">
-
-  <div class="stop-card">
-    <div class="stop-header"><span class="stop-num">3</span><span class="stop-title">上下杭<small>百年商埠的旧梦新颜</small></span></div>
-    <div class="stop-meta"><span class="meta-time">⏲ 2-3小时（含晚餐）</span><span class="meta-ticket">🎟 免费</span></div>
-    <p class="stop-desc">宋元时期即为闽江下游重要港口，曾是福州<strong>最繁华商业中心</strong>。「杭」即航道之意。修复后的古厝沿河排开，红灯笼映衬白墙黛瓦，比三坊七巷更安静、更本地。<br><strong>▸ 三捷河两岸：</strong>沿河步道是上下杭最美部分——古桥、石阶、红灯笼倒映水中，夜景尤其出片。<br><strong>🍽 晚餐：</strong>周边有大量福州本帮菜馆和宵夜档。推荐锅边糊、芋泥、海蛎饼——都是福州人的深夜食堂标配。<br><strong>⚠️ 上下杭部分商铺晚上9点后逐渐收摊。建议18:00-20:30之间游览用餐。</strong></p>
-    <div class="stop-tags"><span class="stop-tag food">锅边糊</span><span class="stop-tag food">海蛎饼</span><span class="stop-tag spot">三捷河夜景</span><span class="stop-tag tip">商铺21点收摊</span></div>
-    <div class="stop-actions">
-      <a href="https://uri.amap.com/navigation?to=119.308,26.061,上下杭&mode=walk&callnative=1" target="_blank" class="btn btn-primary">🗺 高德导航</a>
-      <a href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.061&end_lng=119.308&end_name=%E4%B8%8A%E4%B8%8B%E6%9D%AD" target="_blank" class="btn btn-ghost">🚖 打车去这里</a>
-    </div>
-  </div>
-  <div class="section-header" id="more">
-    <div class="section-badge">扩展行程</div>
-    <div class="section-title">如果还有一天</div>
-    <p class="section-subtitle">时间充裕的话，这三个方向各具特色：古镇底蕴、万国建筑、赶海踏浪。</p>
-  </div>
-  <div class="extras-grid">
-    <div class="extra-card"><div class="extra-card-img">🏘</div><div class="extra-card-body"><h4>螺洲古镇 —— 帝师之乡</h4><p>清光绪帝师陈宝琛故里，田螺姑娘传说发源地。孔庙、陈氏五楼、螺洲温泉——距市区约15公里，地铁5号线直达。</p><div class="extra-card-meta"><span>⏲ 3-4小时</span><span>🚗 5号线螺洲站</span><span>🎟 免费</span></div></div></div>
-    <div class="extra-card"><div class="extra-card-img"><img src="images/yantaishan.jpg" alt="烟台山" style="width:100%;height:160px;object-fit:cover" onerror="this.parentElement.textContent='🏛'"></div><div class="extra-card-body"><h4>烟台山 —— 福州版「鼓浪屿」</h4><p>五口通商遗留的17国领事馆、洋行、教堂——石厝教堂的银杏和老洋房的爬山虎构成独特的万国建筑博物馆。</p><div class="extra-card-meta"><span>⏲ 3-4小时</span><span>🚗 1号线上藤站</span><span>🎟 免费</span></div></div></div>
-    <div class="extra-card"><div class="extra-card-img">🌊</div><div class="extra-card-body"><h4>连江 / 罗源 —— 赶海踏浪</h4><p>滩涂赶海（挖蛤蜊捉螃蟹）、罗源湾海洋世界（白鲸海豚¥180）、贵安温泉（¥168起）、码头海鲜大排档。</p><div class="extra-card-meta"><span>⏲ 1天</span><span>🚗 约1-1.5小时</span><span>🎟 ¥168起</span></div></div></div>
-  </div>
-
-  <div class="section-header" id="tips">
-    <div class="section-badge">行程贴士</div>
-    <div class="section-title">实用信息</div>
-    <p class="section-subtitle">让你的福州之行更加顺畅的小细节。</p>
-  </div>
-  <div class="info-row">
-    <div class="info-card"><h4>☀️ 防晒与补水</h4><p>福州夏季长且炎热（5-10月），体感温度常超35℃。务必涂防晒、戴帽子，每天至少喝2L水。</p></div>
-    <div class="info-card"><h4>👟 穿运动鞋是刚需</h4><p>福道镂空钢架、烟台山坡道、上下杭石板路——薄底鞋、高跟鞋是对自己脚的不尊重。</p></div>
-    <div class="info-card"><h4>🕰 老字号营业时间</h4><p>很多老店下午2-4点休息，卖完即关门。建议<strong>上午11点前或下午5点后</strong>前往。</p></div>
-    <div class="info-card"><h4>📱 必备APP</h4><p>「e福州」扫码乘地铁9折；「大众点评」看餐厅评价；「高德地图」步行导航在福州比百度更准。</p></div>
-    <div class="info-card"><h4>🍵 茉莉花茶伴手礼</h4><p>福州是世界茉莉花茶发源地。推荐「春伦」或「中莉」，¥50-150/罐，上下杭和南后街茶庄可试饮后购买。</p></div>
-    <div class="info-card"><h4>🗣 语言与沟通</h4><p>福州话（闽东语）非常难懂，但市区内普通话完全通用。一句「丫霸」（很棒）可以拉近距离！</p></div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-title">榕城记</div>
-    <p>福州，一座值得慢下来的城市。<br>© 2026 有福之州 · 两天一夜深度旅行攻略</p>
   </div>
 </div>
+
+<!-- ======== DAY 1 ======== -->
+<span class="section-eyebrow fade-up">Day 1</span>
+<h2 class="section-title fade-up" id="day1">古韵与绿意</h2>
+<p class="section-desc fade-up">三坊七巷寻古韵，福道穿林揽绿意，闽江畔吹晚风。第一天的主题是「慢」。</p>
+
+<div class="day-card fade-up" id="day1-card">
+  <div class="day-card-header" onclick="toggleCard('day1-card')">
+    <div class="day-num d1">壹</div>
+    <div class="day-header-info">
+      <div class="day-theme">全天 约10小时</div>
+      <div class="day-name">坊巷漫步 · 空中步道 · 闽江夜景</div>
+      <div class="day-route">三坊七巷 → 福道 → 青年广场 & 闽江夜景</div>
+    </div>
+    <div class="day-toggle">+</div>
+  </div>
+  <div class="day-card-body">
+    <ul class="stop-list">
+      <!-- Stop 1: 三坊七巷 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第1站</span>
+            <span class="stop-title">三坊七巷 —— 半部中国近代史</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">3小时</span></span>
+            <span class="stop-meta-item">🚇 东街口站C口</span>
+            <span class="stop-meta-item">🎫 街区免费 / 小黄楼¥20</span>
+          </div>
+          <div class="stop-desc">
+            被誉为<strong>「明清建筑博物馆」</strong>，占地约40公顷，保留200余座明清古建筑。林则徐、严复、冰心、林觉民等皆出于此。<br><br>
+            <strong>推荐路线：</strong>南后街（主街）→ 郎官巷（严复故居、二梅书屋）→ 黄巷（小黄楼，门票¥20，精致园林）→ 塔巷（特色小店）→ 安泰河畔（网红爱心树）—— 江南水乡即视感。<br><br>
+            <strong>▸ 不要只走主街</strong>，一定要拐进两边的巷子里，精华全在里面。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag food">🍜 同利肉燕</span>
+            <span class="stop-tag food">🥟 永和鱼丸</span>
+            <span class="stop-tag food">🥜 没牙伯花生汤</span>
+            <span class="stop-tag spot">🏛️ 小黄楼</span>
+            <span class="stop-tag spot">🌳 爱心树</span>
+            <span class="stop-tag tip">⚠️ 牛滑/捞化偏清淡</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.2964,26.0837,三坊七巷&mode=walk&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+            <a class="stop-btn navi" href="https://api.map.baidu.com/direction?destination=latlng:26.0837,119.2964|name:三坊七巷&coord_type=gcj02&mode=walking&output=html&src=fztravel" target="_blank" rel="noopener">🗺️ 百度导航</a>
+          </div>
+        </div>
+      </li>
+
+      <div class="stop-transit">🚌 公交约30分钟 / 🚕 打车约15元 → 福道3号入口（梅峰山地公园）</div>
+
+      <!-- Stop 2: 福道 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第2站</span>
+            <span class="stop-title">福道 —— 空中森林步道</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">2小时</span></span>
+            <span class="stop-meta-item">🎫 免费</span>
+            <span class="stop-meta-item">👟 必须运动鞋</span>
+          </div>
+          <div class="stop-desc">
+            全球最美步行道之一，全长约19公里，全线采用<strong>镂空钢架结构</strong>，穿行于森林树冠之间。脚下是山谷，两侧是原始次生林——城市中央的空中走廊。<br><br>
+            <strong>推荐走法：</strong>从<strong>3号入口（梅峰山地公园）</strong>进入，不行全程，走到<strong>金牛山体育公园</strong>段即可（约3公里），该段视野最开阔、拍照最出片。<br><br>
+            <strong>⚠️ 务必穿运动鞋！</strong>镂空钢架对薄底鞋极不友好。避开正午12-14点暴晒时段，建议14:30后进入。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag spot">📸 金牛山段最佳</span>
+            <span class="stop-tag tip">🕑 建议14:30后</span>
+            <span class="stop-tag tip">👟 运动鞋刚需</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.2810,26.0850,福道3号入口&mode=walk&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+          </div>
+        </div>
+      </li>
+
+      <div class="stop-transit">🚕 打车约20元（15分钟）→ 青年广场 / 🚌 公交至闽江公园站</div>
+
+      <!-- Stop 3: 青年广场 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第3站</span>
+            <span class="stop-title">青年广场 & 闽江夜景</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">2-3小时</span>（含晚餐）</span>
+            <span class="stop-meta-item">🎫 免费</span>
+          </div>
+          <div class="stop-desc">
+            <strong>青年会红砖楼：</strong>始于1916年的百年红砖建筑，曾是福州基督教青年会会所。红砖拱廊极具胶片感，复古风拍照圣地。<br><br>
+            傍晚沿闽江步道散步，对岸<strong>中洲岛</strong>的欧式城堡建筑在落日余晖中宛如布达佩斯。推荐<strong>18:30前到达</strong>，先拍白天的红砖楼，再等亮灯后拍闽江夜景。<br><br>
+            <strong>🍽️ 晚餐推荐：</strong>附近苍霞路、台江步行街有多家闽菜老店——荔枝肉、醉排骨、南煎肝是福州人待客三件套。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag food">🍖 荔枝肉</span>
+            <span class="stop-tag food">🍳 南煎肝</span>
+            <span class="stop-tag spot">🏰 中洲岛</span>
+            <span class="stop-tag tip">📸 18:30前到达</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3078,26.0608,青年会红砖楼&mode=walk&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======== DAY 2 ======== -->
+<span class="section-eyebrow fade-up">Day 2</span>
+<h2 class="section-title fade-up" id="day2">山海之间</h2>
+<p class="section-desc fade-up">登鼓山望东海，探马尾船政风云，夜游百年商埠上下杭。第二天走得更远、看得更深。</p>
+
+<div class="day-card fade-up" id="day2-card">
+  <div class="day-card-header" onclick="toggleCard('day2-card')">
+    <div class="day-num d2">贰</div>
+    <div class="day-header-info">
+      <div class="day-theme">全天 约11小时</div>
+      <div class="day-name">鼓山登高 · 船政风云 · 百年商埠</div>
+      <div class="day-route">鼓山涌泉寺 → 船政文化景区 → 上下杭</div>
+    </div>
+    <div class="day-toggle">+</div>
+  </div>
+  <div class="day-card-body">
+    <ul class="stop-list">
+      <!-- Stop 1: 鼓山 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第1站</span>
+            <span class="stop-title">鼓山 —— 福州的城市阳台</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">3-4小时</span></span>
+            <span class="stop-meta-item">🚇 2号线鼓山站</span>
+            <span class="stop-meta-item">🎫 涌泉寺¥40 / 缆车单程¥50</span>
+          </div>
+          <div class="stop-desc">
+            福州最负盛名的地标，海拔925米，因山顶巨石如鼓得名。山中有<strong>千年古刹涌泉寺</strong>（始建于908年），「闽刹之冠」，香火鼎盛。<br><br>
+            <strong>两种游玩方式：</strong><br>
+            🥾 <strong>古道登山：</strong>从「鼓山十八景」古道上行，约1-1.5小时登顶。沿途<strong>摩崖石刻300余处</strong>——历代文人题刻，誉为「东南碑林」。<br>
+            🚡 <strong>缆车上山：</strong>适合体力有限或时间紧，单程¥50，约20分钟到顶。<br><br>
+            ⚠️ 建议早起出发（7:30前），避开10点后旅行团高峰。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag spot">⛩️ 涌泉寺</span>
+            <span class="stop-tag spot">✍️ 摩崖石刻</span>
+            <span class="stop-tag tip">🌅 早起避高峰</span>
+            <span class="stop-tag tip">🚡 缆车¥50</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3830,26.0590,鼓山涌泉寺&mode=car&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+          </div>
+        </div>
+      </li>
+
+      <div class="stop-transit">🚕 打车约¥30（20分钟）→ 马尾区船政文化景区</div>
+
+      <!-- Stop 2: 船政 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第2站</span>
+            <span class="stop-title">船政文化景区 —— 中国近代海军摇篮</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">2.5小时</span></span>
+            <span class="stop-meta-item">🎫 博物馆免费 / 演出¥128起</span>
+          </div>
+          <div class="stop-desc">
+            1866年左宗棠在此创办福州船政局，建中国第一艘千吨级蒸汽军舰<strong>「万年青」</strong>号。红砖厂房、百年轮机车间与闽江码头交织，<strong>工业风浓郁，极为出片</strong>。<br><br>
+            <strong>推荐顺序：</strong>船政文化博物馆 → 轮机车间 → 绘事院 → 罗星塔<br>
+            🎭 <strong>《最忆船政》沉浸式演出：</strong>大型实景演艺，光影与戏剧再现船政风云，强烈推荐（需提前购票，¥128起，建议提前一天预订）。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag spot">🏭 轮机车间</span>
+            <span class="stop-tag spot">🗼 罗星塔</span>
+            <span class="stop-tag tip">🎭 最忆船政¥128</span>
+            <span class="stop-tag tip">📸 工业风拍照</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.4600,26.0000,船政文化景区&mode=car&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+          </div>
+        </div>
+      </li>
+
+      <div class="stop-transit">🚌 公交约40分钟 / 🚕 打车约¥35 → 上下杭历史文化街区</div>
+
+      <!-- Stop 3: 上下杭 -->
+      <li class="stop-item">
+        <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
+        <div class="stop-body">
+          <div class="stop-top">
+            <span class="stop-num">第3站</span>
+            <span class="stop-title">上下杭 —— 百年商埠的旧梦新颜</span>
+          </div>
+          <div class="stop-meta">
+            <span class="stop-meta-item">🕐 <span class="hl">2-3小时</span>（含晚餐）</span>
+            <span class="stop-meta-item">🎫 免费</span>
+          </div>
+          <div class="stop-desc">
+            宋元时期即为闽江下游重要港口，曾是福州<strong>最繁华商业中心</strong>。「杭」即航道之意。修复后的古厝沿河排开，红灯笼映衬白墙黛瓦，比三坊七巷<strong>更安静、更本地</strong>。<br><br>
+            <strong>▸ 三捷河两岸：</strong>沿河步道是上下杭最美部分——古桥、石阶、红灯笼倒映水中，夜景尤其出片。<br>
+            <strong>🍽️ 晚餐：</strong>周边有大量福州本帮菜馆和宵夜档。推荐锅边糊、芋泥、海蛎饼——都是福州人的深夜食堂标配。<br><br>
+            ⚠️ 上下杭部分商铺晚上9点后逐渐收摊。建议<strong>18:00-20:30</strong>之间游览用餐。
+          </div>
+          <div class="stop-highlights">
+            <span class="stop-tag food">🥘 锅边糊</span>
+            <span class="stop-tag food">🦪 海蛎饼</span>
+            <span class="stop-tag spot">🌉 三捷河夜景</span>
+            <span class="stop-tag tip">🕘 商铺21点收摊</span>
+          </div>
+          <div class="stop-actions">
+            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3048,26.0633,上下杭历史文化街区&mode=walk&callnative=1" target="_blank" rel="noopener">🧭 高德导航</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======== MORE ======== -->
+<span class="section-eyebrow fade-up">扩展行程</span>
+<h2 class="section-title fade-up" id="more">如果还有一天</h2>
+<p class="section-desc fade-up">时间充裕的话，这三个方向各具特色：古镇底蕴、万国建筑、赶海踏浪。</p>
+
+<div class="more-grid">
+  <!-- 螺洲 -->
+  <div class="more-card fade-up">
+    <div class="more-card-image-wrapper">
+      <img class="more-card-image" src="https://images.unsplash.com/photo-1551004766-2a56b76464e4?auto=format&fit=crop&w=600&q=80" alt="螺洲古镇" loading="lazy">
+    </div>
+    <div class="more-card-body">
+      <span class="more-card-tag">古镇底蕴</span>
+      <h4>螺洲古镇 —— 帝师之乡</h4>
+      <p>清代帝师陈宝琛故里，田螺姑娘传说发源地。孔庙、陈氏五楼、螺洲温泉——距市区仅15公里，地铁5号线直达。</p>
+      <div class="more-card-meta"><span>🕐 3-4小时</span><span>🚇 5号线螺洲站</span><span>🎫 免费</span></div>
+    </div>
+  </div>
+
+  <!-- 烟台山 -->
+  <div class="more-card fade-up">
+    <div class="more-card-image-wrapper">
+      <img class="more-card-image" src="images/yantaishan.jpg" alt="烟台山" loading="lazy">
+    </div>
+    <div class="more-card-body">
+      <span class="more-card-tag">万国建筑</span>
+      <h4>烟台山 —— 福州版「鼓浪屿」</h4>
+      <p>五口通商遗留的17国领事馆、洋行、教堂——石厝教堂的银杏和老洋房的爬山虎构成独特的万国建筑博物馆。</p>
+      <div class="more-card-meta"><span>🕐 3-4小时</span><span>🚇 1号线上藤站</span><span>🎫 免费</span></div>
+    </div>
+  </div>
+
+  <!-- 连江 -->
+  <div class="more-card fade-up">
+    <div class="more-card-image-wrapper">
+      <img class="more-card-image" src="https://images.unsplash.com/photo-1580278702238-7bfeb9fd442c?auto=format&fit=crop&w=600&q=80" alt="连江海滨" loading="lazy">
+    </div>
+    <div class="more-card-body">
+      <span class="more-card-tag">海滨渔村</span>
+      <h4>连江 / 罗源 —— 赶海踏浪</h4>
+      <p>滩涂赶海（挖蛤蜊捉螃蟹）、罗源湾海洋世界（白鲸海豚¥180）、贵安温泉（¥168起）、码头海鲜大排档。</p>
+      <div class="more-card-meta"><span>🕐 1天</span><span>🚗 约1-1.5小时</span><span>🎫 ¥168起</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== TIPS ======== -->
+<span class="section-eyebrow fade-up">实用信息</span>
+<h2 class="section-title fade-up" id="tips">行程贴士</h2>
+<p class="section-desc fade-up">让你的福州之行更加顺畅的小细节。</p>
+
+<div class="tips-wrapper fade-up">
+  <div class="tips-grid">
+    <div class="tip-item">
+      <div class="tip-icon">☀️</div>
+      <div class="tip-text">
+        <h5>防晒与补水</h5>
+        <p>福州夏季长且炎热（5-10月），体感温度常超35°C。务必涂防晒、戴帽子，每天至少喝2L水。</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">👟</div>
+      <div class="tip-text">
+        <h5>穿运动鞋是刚需</h5>
+        <p>福道镂空钢架、烟台山坡道、上下杭石板路——薄底鞋、高跟鞋是对自己脚的不尊重。</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🕐</div>
+      <div class="tip-text">
+        <h5>老字号营业时间</h5>
+        <p>很多老店下午2-4点休息，卖完即关门。建议<strong>上午11点前或下午5点后</strong>前往。</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">📱</div>
+      <div class="tip-text">
+        <h5>必备APP</h5>
+        <p>「e福州」扫码乘地铁9折；「大众点评」看餐厅评价；「高德地图」步行导航在福州比百度更准。</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🍵</div>
+      <div class="tip-text">
+        <h5>茉莉花茶伴手礼</h5>
+        <p>福州是世界茉莉花茶发源地。上下杭和南后街茶庄可试饮后购买，推荐「春伦」或「中莉」，¥50-150/罐。</p>
+      </div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-icon">🗣️</div>
+      <div class="tip-text">
+        <h5>语言与沟通</h5>
+        <p>福州话（闽东语）非常难懂，但市区内普通话完全通用。一句「丫霸」（很棒）可以拉近距离！</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer fade-up">
+  <strong>榕行记</strong>
+  福州，一座值得慢下来的城市。
+  <p style="margin-top:8px;">© 2026 有福之州 · 两天一夜深度旅行攻略</p>
+</footer>
+
+</div><!-- /wrapper -->
+
+<!-- Back to Top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-const nav=document.getElementById('navbar');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)});
-document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',function(){document.querySelectorAll('.nav-links a').forEach(x=>x.classList.remove('active'));this.classList.add('active')})});
+/* ===== Nav scroll effect ===== */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+/* ===== Nav active state ===== */
+const sections = document.querySelectorAll('h2[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+/* ===== Back to top ===== */
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 600));
+
+/* ===== Card expand/collapse ===== */
+function toggleCard(id) {
+  document.getElementById(id).classList.toggle('expanded');
+}
+
+/* ===== Intersection Observer for fade-up animations ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* ===== Auto-expand Day 1 on load ===== */
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => document.getElementById('day1-card').classList.add('expanded'), 600);
+});
 </script>
-</body></html>
+
+</body>
+</html>
