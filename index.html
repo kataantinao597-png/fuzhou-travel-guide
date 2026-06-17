@@ -3,983 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>鏈夌涔嬪窞 路 涓ゅぉ涓€澶滄梾琛屾敾鐣?/title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<title>有福之州 · 两天一夜旅行攻略</title>
 <style>
-/* ===========================================
-   绂忓窞鏃呰鏀荤暐 路 B 鍨嬪疄鐢ㄥ伐鍏疯瑙変綋绯?   Inspired by: 椹瀺澧?路 瀵垮北鐭?路 鑼夎帀鑺?   =========================================== */
-
 :root {
-  /* 瀵垮北鐭宠崝鏋濈櫧 鈥?娓╂殩搴曡壊 */
-  --fz-stone: #faf8f2;
-  --fz-stone-warm: #f5f0e7;
-  /* 榛涚摝鐏?鈥?娣遍們鏂囧瓧 */
-  --fz-dark: #242729;
-  --fz-dark-80: #4a4d4f;
-  --fz-dark-60: #727577;
-  --fz-dark-40: #9b9d9f;
-  --fz-dark-15: #d4d5d5;
-  --fz-dark-08: #e8e8e8;
-  /* 澶х孩琚嶇孩 鈥?楂樼骇鐐圭紑 */
-  --fz-red: #8c2425;
-  --fz-red-light: #b84041;
-  /* 閲戠當閲?鈥?楂樹寒鏍囩 */
-  --fz-gold: #c8a45c;
-  --fz-gold-light: #e4d0a0;
-  --fz-gold-pale: #f5ecd8;
-  /* 婕嗗櫒缁?鈥?鑷劧灞辨按 */
-  --fz-jade: #5b7a6a;
-  --fz-jade-light: #8faa98;
-  --fz-jade-pale: #dce8e0;
-  /* 闂磋窛鏍呮牸 */
-  --grid: 8px;
-  /* 鍦嗚浣撶郴 鈥?妯℃嫙椹瀺澧欑嚂灏捐剨 */
-  --r-sm: 8px;
-  --r-md: 16px;
-  --r-lg: 24px;
-  --r-xl: 32px;
-  --r-card: 24px 4px 24px 4px;
-  --r-card-alt: 4px 24px 4px 24px;
-  /* 闃村奖 */
-  --shadow-sm: 0 2px 8px rgba(36,39,41,0.04);
-  --shadow-md: 0 8px 32px rgba(36,39,41,0.07);
-  --shadow-lg: 0 16px 48px rgba(140,36,37,0.06);
-  /* 瀛椾綋 */
-  --font-display: "Noto Serif SC", "SimSun", "STSong", serif;
-  --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --font-accent: "KaiTi", "STKaiti", serif;
-  /* 鍔ㄧ敾 */
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-out: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ===== Reset ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 72px; }
-body {
-  font-family: var(--font-body);
-  color: var(--fz-dark);
-  background: var(--fz-stone);
-  line-height: 1.8;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* 瀹ｇ焊绾圭悊 */
-body::after {
-  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  opacity: 0.35;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(180,160,130,0.015) 2px, rgba(180,160,130,0.015) 4px),
-    repeating-linear-gradient(90deg, transparent, transparent 3px, rgba(170,150,120,0.01) 3px, rgba(170,150,120,0.01) 6px);
-}
-
-::selection { background: rgba(140,36,37,0.12); color: var(--fz-dark); }
-
-/* ===== Wrapper ===== */
-.wrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: calc(var(--grid) * 3) calc(var(--grid) * 4);
-}
-
-/* ===========================================
-   Navigation 鈥?姣涚幓鐠冮《鏍?   =========================================== */
-.nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  height: 60px;
-  background: rgba(250,248,242,0.78);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-.nav.scrolled { border-bottom-color: var(--fz-dark-08); box-shadow: var(--shadow-sm); }
-.nav-inner {
-  max-width: 1100px; margin: 0 auto; height: 100%;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 calc(var(--grid) * 4);
-}
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.1rem; font-weight: 700; letter-spacing: 0.1em;
-  color: var(--fz-dark); text-decoration: none;
-}
-.nav-links { display: flex; gap: 4px; }
-.nav-links a {
-  text-decoration: none; color: var(--fz-dark-60);
-  font-size: 0.84rem; font-weight: 500;
-  padding: 6px 16px; border-radius: 100px;
-  transition: all 0.25s var(--ease-out); white-space: nowrap;
-}
-.nav-links a:hover { color: var(--fz-dark); background: var(--fz-dark-08); }
-.nav-links a.active { color: var(--fz-red); background: rgba(140,36,37,0.06); font-weight: 600; }
-
-/* ===========================================
-   Hero 鈥?绠€娲佸疄鐢ㄥ瀷
-   =========================================== */
-.hero {
-  min-height: 70vh; display: flex; align-items: center;
-  padding: 120px 20px 60px;
-  background: linear-gradient(170deg, #1E3028 0%, #2A3F33 25%, #3A5342 55%, #4D6455 85%, var(--fz-stone) 100%);
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ""; position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 20%, rgba(200,164,92,0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 70% 60%, rgba(91,122,106,0.10) 0%, transparent 60%),
-    radial-gradient(circle 3px at 20% 85%, rgba(228,208,160,0.12) 0%, transparent 100%),
-    radial-gradient(circle 4px at 45% 90%, rgba(228,208,160,0.08) 0%, transparent 100%),
-    radial-gradient(circle 2px at 65% 88%, rgba(228,208,160,0.10) 0%, transparent 100%);
-}
-.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
-.hero-label {
-  display: inline-block; font-family: var(--font-accent);
-  font-size: 1.2rem; color: var(--fz-gold-light);
-  border: 1.5px solid rgba(228,208,160,0.4);
-  padding: 6px 20px; border-radius: 4px;
-  transform: rotate(-4deg); margin-bottom: 28px;
-  opacity: 0;
-}
-.hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
-  font-weight: 900; color: #FFFEF8;
-  line-height: 1.15; letter-spacing: 0.03em;
-  margin-bottom: 16px; opacity: 0;
-}
-.hero h1 em {
-  font-family: var(--font-accent); font-style: normal;
-  color: var(--fz-gold-light); font-size: 0.75em;
-}
-.hero-desc {
-  font-size: 1.05rem; color: rgba(255,255,248,0.55);
-  max-width: 560px; line-height: 1.7; opacity: 0;
-}
-.hero-stats {
-  display: flex; gap: 48px; margin-top: 40px; opacity: 0;
-}
-.hero-stat-num {
-  font-family: var(--font-display);
-  font-size: 2rem; font-weight: 800; color: rgba(255,255,248,0.9);
-}
-.hero-stat-label { font-size: 0.78rem; color: rgba(255,255,248,0.4); letter-spacing: 0.06em; }
-
-/* 椹瀺澧欏簳寮?*/
-.hero-arc {
-  position: absolute; bottom: -2px; left: 0; right: 0; height: 64px;
-  background: var(--fz-stone);
-  clip-path: ellipse(80% 100% at 50% 100%);
-  z-index: 3;
-}
-
-/* ===========================================
-   Quick Info Bar
-   =========================================== */
-.quick-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: calc(var(--grid) * 2);
-  margin-bottom: calc(var(--grid) * 10);
-}
-.quick-item {
-  background: #fff; border-radius: var(--r-card);
-  padding: calc(var(--grid) * 3);
-  box-shadow: var(--shadow-sm);
-  display: flex; align-items: flex-start; gap: 14px;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-  opacity: 0;
-}
-.quick-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.quick-item-icon {
-  width: 44px; height: 44px; border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; flex-shrink: 0;
-}
-.quick-item-icon.i-place { background: rgba(140,36,37,0.07); }
-.quick-item-icon.i-time { background: rgba(91,122,106,0.07); }
-.quick-item-icon.i-trans { background: rgba(200,164,92,0.10); }
-.quick-item h4 { font-size: 0.9rem; font-weight: 700; color: var(--fz-dark); margin-bottom: 2px; }
-.quick-item p  { font-size: 0.8rem; color: var(--fz-dark-60); line-height: 1.5; }
-
-/* ===========================================
-   Section Headers
-   =========================================== */
-.section-eyebrow {
-  display: block; font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.15em; color: var(--fz-red);
-  margin-bottom: calc(var(--grid) * 1); opacity: 0;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: 1.8rem; font-weight: 700;
-  color: var(--fz-dark); margin-bottom: 8px; opacity: 0;
-}
-.section-desc {
-  font-size: 0.9rem; color: var(--fz-dark-60);
-  margin-bottom: calc(var(--grid) * 5); opacity: 0;
-}
-
-/* ===========================================
-   Day Card 鈥?鏍稿績琛岀▼鍗?   =========================================== */
-.day-card {
-  background: #fff;
-  border-radius: var(--r-card);
-  box-shadow: var(--shadow-md);
-  margin-bottom: calc(var(--grid) * 5);
-  overflow: hidden;
-  opacity: 0;
-  transition: box-shadow 0.4s var(--ease);
-}
-.day-card:hover { box-shadow: var(--shadow-lg); }
-/* 椹瀺澧欏僵鏉￠《 */
-.day-card::before {
-  content: ""; display: block; height: 4px;
-  background: linear-gradient(90deg,
-    var(--fz-red) 0%, var(--fz-red) 28%, transparent 28%, transparent 32%,
-    var(--fz-gold) 32%, var(--fz-gold) 62%, transparent 62%, transparent 66%,
-    var(--fz-jade) 66%, var(--fz-jade) 100%);
-  opacity: 0.45;
-}
-
-.day-card-header {
-  padding: calc(var(--grid) * 4) calc(var(--grid) * 5);
-  display: flex; align-items: flex-start; gap: 16px;
-  border-bottom: 1px dashed var(--fz-dark-08);
-  cursor: pointer; user-select: none;
-  transition: background 0.2s;
-}
-.day-card-header:hover { background: rgba(250,248,242,0.5); }
-.day-num {
-  width: 52px; height: 52px; border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 900; font-size: 1.3rem; color: #fff;
-  flex-shrink: 0;
-}
-.day-num.d1 { background: linear-gradient(135deg, #8c2425, #b84041); }
-.day-num.d2 { background: linear-gradient(135deg, #3a5a48, #5b7a6a); }
-.day-header-info { flex: 1; }
-.day-theme {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
-  color: var(--fz-dark-40); margin-bottom: 2px;
-}
-.day-name {
-  font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 700; color: var(--fz-dark);
-}
-.day-route {
-  font-size: 0.85rem; color: var(--fz-dark-60);
-  margin-top: 4px;
-}
-.day-toggle {
-  width: 36px; height: 36px; border-radius: 50%;
-  border: 1.5px solid var(--fz-dark-15);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; color: var(--fz-dark-40);
-  flex-shrink: 0; transition: all 0.4s var(--ease);
-}
-.day-card.expanded .day-toggle { transform: rotate(45deg); border-color: var(--fz-red); color: var(--fz-red); }
-
-.day-card-body {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.55s var(--ease);
-}
-.day-card.expanded .day-card-body { max-height: 4000px; }
-
-/* Stop Item */
-.stop-list { padding: 0; list-style: none; }
-.stop-item {
-  padding: calc(var(--grid) * 3) calc(var(--grid) * 5);
-  display: flex; gap: 16px;
-  border-bottom: 1px solid var(--fz-dark-08);
-  transition: background 0.2s;
-}
-.stop-item:last-child { border-bottom: none; }
-.stop-item:hover { background: rgba(250,248,242,0.3); }
-.stop-marker {
-  width: 32px; flex-shrink: 0; text-align: center;
-  padding-top: 2px;
-}
-.stop-dot {
-  display: inline-block; width: 10px; height: 10px;
-  border-radius: 50%; background: var(--fz-red);
-  box-shadow: 0 0 0 3px rgba(140,36,37,0.15);
-}
-.stop-dot.sd-jade { background: var(--fz-jade); box-shadow: 0 0 0 3px rgba(91,122,106,0.15); }
-.stop-dot.sd-gold { background: var(--fz-gold); box-shadow: 0 0 0 3px rgba(200,164,92,0.18); }
-.stop-body { flex: 1; min-width: 0; }
-.stop-top {
-  display: flex; align-items: baseline; gap: 10px;
-  margin-bottom: 6px; flex-wrap: wrap;
-}
-.stop-num {
-  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
-  color: var(--fz-dark-40); white-space: nowrap;
-}
-.stop-title {
-  font-size: 1.1rem; font-weight: 700; color: var(--fz-dark); line-height: 1.3;
-}
-.stop-meta {
-  display: flex; gap: 14px; flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.stop-meta-item {
-  font-size: 0.75rem; color: var(--fz-dark-40);
-  display: flex; align-items: center; gap: 4px;
-}
-.stop-meta-item .hl { color: var(--fz-red); font-weight: 600; }
-.stop-desc {
-  font-size: 0.85rem; color: var(--fz-dark-60); line-height: 1.7;
-  margin-bottom: 8px;
-}
-.stop-desc strong { color: var(--fz-dark); font-weight: 600; }
-.stop-highlights {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
-}
-.stop-tag {
-  font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
-  border-radius: 100px; white-space: nowrap;
-}
-.stop-tag.food { background: rgba(140,36,37,0.06); color: var(--fz-red); }
-.stop-tag.spot { background: rgba(91,122,106,0.06); color: var(--fz-jade); }
-.stop-tag.tip  { background: rgba(200,164,92,0.10); color: #8a6d2b; }
-.stop-actions {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;
-}
-.stop-btn {
-  display: inline-flex; align-items: center; gap: 4px;
-  font-size: 0.75rem; font-weight: 500;
-  padding: 5px 14px; border-radius: 100px;
-  text-decoration: none;
-  transition: all 0.25s var(--ease-out);
-}
-.stop-btn.map {
-  color: var(--fz-jade); background: rgba(91,122,106,0.06);
-  border: 1px solid rgba(91,122,106,0.12);
-}
-.stop-btn.map:hover { background: rgba(91,122,106,0.12); }
-.stop-btn.navi {
-  color: #3B7DD8; background: rgba(59,125,216,0.06);
-  border: 1px solid rgba(59,125,216,0.12);
-}
-.stop-btn.navi:hover { background: rgba(59,125,216,0.12); }
-.stop-btn.didi {
-  color: #E85D04; background: rgba(232,93,4,0.06);
-  border: 1px solid rgba(232,93,4,0.15);
-}
-.stop-btn.didi:hover { background: rgba(232,93,4,0.14); }
-
-/* Transit connector */
-.stop-transit {
-  padding: 10px calc(var(--grid) * 5) 10px calc(var(--grid) * 5 + 48px);
-  font-size: 0.8rem; color: var(--fz-dark-40);
-  background: rgba(250,248,242,0.6);
-  border-bottom: 1px solid var(--fz-dark-08);
-  position: relative;
-}
-.stop-transit::before {
-  content: ""; position: absolute; left: calc(var(--grid) * 5 + 15px); top: 0; bottom: 0; width: 2px;
-  background: repeating-linear-gradient(to bottom, var(--fz-dark-15) 0px, var(--fz-dark-15) 3px, transparent 3px, transparent 7px);
-}
-
-/* ===========================================
-   More Cards 鈥?Bento Grid
-   =========================================== */
-.more-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: calc(var(--grid) * 3);
-  margin-bottom: calc(var(--grid) * 10);
-}
-.more-card {
-  background: #fff;
-  border-radius: var(--r-card);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  opacity: 0;
-  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
-  cursor: pointer;
-}
-.more-card:nth-child(3n+2) { border-radius: var(--r-card-alt); }
-.more-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.more-card-image {
-  width: 100%; height: 180px; object-fit: cover;
-  position: relative; display: block;
-  transition: transform 0.6s var(--ease);
-}
-.more-card-image-wrapper {
-  position: relative; overflow: hidden;
-}
-/* 缁㈡湰璐ㄦ劅鍙犲姞 */
-.more-card-image-wrapper::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(200,164,92,0.04) 2px, rgba(200,164,92,0.04) 4px);
-  mix-blend-mode: overlay;
-}
-.more-card:hover .more-card-image { transform: scale(1.06); }
-.more-card-body { padding: calc(var(--grid) * 3); }
-.more-card-tag {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
-  color: var(--fz-red); margin-bottom: 4px; display: block;
-}
-.more-card h4 {
-  font-family: var(--font-display);
-  font-size: 1.05rem; font-weight: 700; color: var(--fz-dark);
-  margin-bottom: 4px; line-height: 1.3;
-}
-.more-card p {
-  font-size: 0.8rem; color: var(--fz-dark-60); line-height: 1.55;
-}
-.more-card-meta {
-  display: flex; gap: 12px; margin-top: 10px;
-  font-size: 0.72rem; color: var(--fz-dark-40);
-}
-
-/* ===========================================
-   Tips Section
-   =========================================== */
-.tips-wrapper {
-  background: #fff;
-  border-radius: var(--r-card);
-  box-shadow: var(--shadow-md);
-  padding: calc(var(--grid) * 4);
-  opacity: 0;
-}
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: calc(var(--grid) * 3);
-}
-.tip-item {
-  display: flex; gap: 12px;
-  padding: calc(var(--grid) * 1.5);
-  border-radius: var(--r-sm);
-  transition: background 0.2s;
-}
-.tip-item:hover { background: rgba(250,248,242,0.5); }
-.tip-icon {
-  width: 40px; height: 40px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.1rem; flex-shrink: 0;
-  background: var(--fz-stone-warm); border: 1px solid var(--fz-dark-08);
-}
-.tip-text h5 { font-size: 0.88rem; font-weight: 700; color: var(--fz-dark); margin-bottom: 2px; }
-.tip-text p  { font-size: 0.78rem; color: var(--fz-dark-60); line-height: 1.5; }
-
-/* ===========================================
-   Footer
-   =========================================== */
-.footer {
-  text-align: center; padding: 48px 20px 32px;
-  margin-top: calc(var(--grid) * 8);
-  border-top: 1px solid var(--fz-dark-08);
-  color: var(--fz-dark-40); font-size: 0.82rem;
-  opacity: 0;
-}
-.footer strong {
-  font-family: var(--font-accent);
-  font-size: 1.1rem; color: var(--fz-dark-60); font-weight: 400;
-  display: block; margin-bottom: 6px;
-}
-
-/* ===========================================
-   Animations 鈥?Intersection Observer driven
-   =========================================== */
-.fade-up {
-  opacity: 0; transform: translateY(30px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-}
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-/* ===========================================
-   Back to top
-   =========================================== */
-.back-top {
-  position: fixed; bottom: 28px; right: 28px; z-index: 999;
-  width: 44px; height: 44px; border-radius: 50%;
-  background: #fff; border: 1px solid var(--fz-dark-15);
-  box-shadow: var(--shadow-sm);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; color: var(--fz-dark-60);
-  cursor: pointer; opacity: 0; pointer-events: none;
-  transition: all 0.3s var(--ease-out);
-}
-.back-top.visible { opacity: 1; pointer-events: auto; }
-.back-top:hover { border-color: var(--fz-red); color: var(--fz-red); box-shadow: var(--shadow-md); }
-
-/* ===========================================
-   Responsive
-   =========================================== */
-@media (max-width: 768px) {
-  .wrapper { padding: calc(var(--grid) * 2) calc(var(--grid) * 2); }
-  .hero { min-height: 55vh; padding: 100px 20px 80px; }
-  .hero h1 { font-size: 2.2rem; }
-  .hero-stats { gap: 16px; }
-  .hero-stat-num { font-size: 1.2rem; }
-  .hero-stat-label { font-size: 0.68rem; }
-  .hero-arc { height: 40px; }
-  .hero-desc { font-size: 0.88rem; }
-  .quick-bar { grid-template-columns: 1fr; }
-  .day-card-header { padding: calc(var(--grid) * 3) calc(var(--grid) * 3); }
-  .stop-item { padding: calc(var(--grid) * 2.5) calc(var(--grid) * 3); }
-  .stop-transit { padding: 10px calc(var(--grid) * 3) 10px calc(var(--grid) * 3 + 40px); }
-  .stop-transit::before { left: calc(var(--grid) * 3 + 15px); }
-  .more-grid { grid-template-columns: 1fr; }
-  .nav-links a { font-size: 0.75rem; padding: 5px 10px; }
-}
+  --bg: #faf8f2; --card: #fff; --text: #333; --accent: #8c2425;
+  --gold: #c8a45c; --jade: #5b7a6a; --radius: 16px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.8; }
+.container { max-width: 600px; margin: 0 auto; padding: 16px; }
+.hero { text-align: center; padding: 40px 16px 24px; }
+.hero h1 { font-size: 28px; font-weight: 900; color: var(--accent); letter-spacing: 2px; }
+.hero .sub { color: #888; font-size: 14px; margin-top: 8px; }
+.hero .stats { display: flex; justify-content: center; gap: 24px; margin-top: 20px; }
+.hero .stat { text-align: center; }
+.hero .stat-num { font-size: 32px; font-weight: 900; color: var(--accent); }
+.hero .stat-label { font-size: 12px; color: #999; }
+.day-title { font-size: 20px; font-weight: 700; color: var(--jade); margin: 32px 0 12px; padding-left: 12px; border-left: 4px solid var(--jade); }
+.day-sub { color: #999; font-size: 13px; margin-bottom: 16px; }
+.stop-card { background: var(--card); border-radius: var(--radius); padding: 20px; margin: 16px 0; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+.stop-num { display: inline-block; background: var(--accent); color: #fff; width: 28px; height: 28px; border-radius: 50%; text-align: center; line-height: 28px; font-size: 14px; font-weight: 700; margin-right: 8px; }
+.stop-title { font-size: 18px; font-weight: 700; display: inline; }
+.stop-meta { display: flex; gap: 16px; margin: 10px 0; font-size: 13px; color: #888; flex-wrap: wrap; }
+.stop-meta span { background: #f5f0e7; padding: 2px 10px; border-radius: 20px; }
+.stop-desc { font-size: 14px; color: #555; margin: 10px 0; }
+.tag { display: inline-block; background: var(--gold); color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin: 2px; }
+.tag.jade { background: var(--jade); }
+.tag.red { background: var(--accent); }
+.tag.outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+.tip { background: #fff8e1; border-left: 3px solid var(--gold); padding: 10px 14px; margin: 12px 0; font-size: 13px; border-radius: 0 8px 8px 0; }
+.warn { background: #fff0f0; border-left: 3px solid var(--accent); padding: 10px 14px; margin: 12px 0; font-size: 13px; border-radius: 0 8px 8px 0; }
+.btn { display: inline-block; padding: 8px 20px; border-radius: 20px; font-size: 13px; text-decoration: none; font-weight: 600; margin: 4px; }
+.btn-red { background: var(--accent); color: #fff; }
+.btn-outline { border: 2px solid var(--accent); color: var(--accent); }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+.info-card { background: var(--card); border-radius: var(--radius); padding: 14px; box-shadow: 0 1px 8px rgba(0,0,0,0.03); }
+.info-card h5 { font-size: 13px; color: var(--accent); margin-bottom: 4px; }
+.info-card p { font-size: 12px; color: #888; }
+.extras { margin: 24px 0; }
+.extra-card { background: var(--card); border-radius: var(--radius); padding: 16px; margin: 12px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.extra-card h4 { color: var(--jade); font-size: 16px; margin-bottom: 6px; }
+.extra-card p { font-size: 13px; color: #888; }
+.footer { text-align: center; padding: 30px 16px; color: #bbb; font-size: 12px; border-top: 1px solid #eee; margin-top: 32px; }
+.top-btn { position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px; background: var(--accent); color: #fff; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 16px rgba(140,36,37,0.3); z-index: 99; }
+.nav { position: sticky; top: 0; background: rgba(250,248,242,0.95); backdrop-filter: blur(10px); padding: 10px 16px; border-bottom: 1px solid #eee; z-index: 100; display: flex; gap: 8px; overflow-x: auto; }
+.nav a { font-size: 13px; color: var(--text); text-decoration: none; padding: 4px 12px; border-radius: 14px; white-space: nowrap; }
+.nav a.active { background: var(--accent); color: #fff; }
+@media (max-width: 400px) { .container { padding: 10px; } .hero h1 { font-size: 24px; } .info-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
+<div class="nav">
+  <a href="#day1" class="active">Day 1</a>
+  <a href="#day2">Day 2</a>
+  <a href="#extras">更多推荐</a>
+  <a href="#tips">贴士</a>
+</div>
 
-<!-- Nav -->
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">FOOCHOW.</a>
-    <div class="nav-links">
-      <a href="#day1" class="active">Day 1</a>
-      <a href="#day2">Day 2</a>
-      <a href="#more">鏇村鎺ㄨ崘</a>
-      <a href="#tips">璐村＋</a>
+<div class="container">
+  <div class="hero">
+    <h1>有福之州</h1>
+    <div class="sub">白墙黛瓦，跌进马鞍墙的蜿蜒流线；一盏茉莉，在坊巷的慢时光里偷闲。<br>「七溜八溜，不离福州。」</div>
+    <div class="stats">
+      <div class="stat"><div class="stat-num">2天</div><div class="stat-label">建议游玩</div></div>
+      <div class="stat"><div class="stat-num">8+</div><div class="stat-label">核心景点</div></div>
+      <div class="stat"><div class="stat-num">15+</div><div class="stat-label">在地小吃</div></div>
     </div>
   </div>
-</nav>
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-label fade-up">姒?/div>
-    <h1 class="fade-up">鏈夌涔嬪窞<em>锛?/em>鎱㈣涓ゆ棩</h1>
-    <p class="hero-desc fade-up">鐧藉榛涚摝锛岃穼杩涢┈闉嶅鐨勮溈铚掓祦绾匡紱涓€鐩忚寜鑾夛紝鍦ㄥ潑宸风殑鎱㈡椂鍏夐噷鍋烽棽銆?br>銆屼竷婧滃叓婧滐紝涓嶇绂忓窞銆傘€?/p>
-    <div class="hero-stats fade-up">
-      <div class="hero-stat">
-        <div class="hero-stat-num">2澶?/div>
-        <div class="hero-stat-label">寤鸿娓哥帺</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">8+</div>
-        <div class="hero-stat-label">鏍稿績鏅偣</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">15+</div>
-        <div class="hero-stat-label">鍦ㄥ湴灏忓悆</div>
-      </div>
-    </div>
+  <div class="info-grid">
+    <div class="info-card"><h5>🏠 住宿首选：东街口 / 南门兜</h5><p>地铁1号线与2号线交汇处，步行三坊七巷5分钟、西湖10分钟。</p></div>
+    <div class="info-card"><h5>📮 最佳季节：10月–次年4月</h5><p>避开福州炎热夏季，春秋气温宜人（15-25℃）。</p></div>
+    <div class="info-card"><h5>🚗 市内交通：e福州APP</h5><p>地铁扫码9折，公交线路四通八达，共享单车短途首选。</p></div>
+    <div class="info-card"><h5>☀️ 防晒与补水</h5><p>福州夏季长且炎热（5-10月），务必涂防晒、戴帽子，每天至少喝2L水。</p></div>
+    <div class="info-card"><h5>👟 穿运动鞋是刚需</h5><p>福道镂空钢架、烟台山坡道、上下杭石板路——薄底鞋是对自己脚的不尊重。</p></div>
+    <div class="info-card"><h5>🕰 老字号营业时间</h5><p>很多老店下午2-4点休息，卖完即关门。建议上午11点前或下午5点后前往。</p></div>
+    <div class="info-card"><h5>📱 必备APP</h5><p>e福州扫码乘地铁9折、高德地图步行导航在福州比百度更准。</p></div>
+    <div class="info-card"><h5>🍵 茉莉花茶伴手礼</h5><p>福州是世界茉莉花茶发源地。上下杭和南后街茶庄可试饮后购买，推荐「春伦」或「中莉」，¥50-150/罐。</p></div>
+    <div class="info-card"><h5>🗣 语言与沟通</h5><p>福州话（闽东语）非常难懂，但市区内普通话完全通用。一句「丫霸」（很棒）可以拉近距离！</p></div>
+    <div class="info-card"><h5>👟 穿运动鞋是刚需</h5><p>福道镂空钢架、烟台山坡道、上下杭石板路——薄底鞋、高跟鞋是对自己脚的不尊重。</p></div>
   </div>
-  <div class="hero-arc"></div>
-</section>
+  <div class="day-title" id="day1">Day 1 · 古韵与绿意</div>
+  <div class="day-sub">三坊七巷寻古韵，福道穿林揽绿意，闽江畔吹晚风。第一天的主题是「慢」。</div>
 
-<div class="wrapper">
-
-<!-- Quick Info -->
-<div class="quick-bar">
-  <div class="quick-item fade-up">
-    <div class="quick-item-icon i-place">馃彔</div>
+  <div class="stop-card">
+    <div><span class="stop-num">1</span><span class="stop-title">三坊七巷 —— 半部中国近代史</span></div>
+    <div class="stop-meta">
+      <span>⏲ 3小时</span><span>🚗 东街口站C口</span><span>🎟 街区免费 / 小黄楼¥20</span>
+    </div>
+    <div class="stop-desc">
+      被誉为<b>「明清建筑博物馆」</b>，占地约40公顷，保留200余座明清古建筑。林则徐、严复、冰心、林觉民等皆出于此。<br>
+      <b>推荐路线：</b>南后街（主街）→ 郎官巷（严复故居、二梅书屋）→ 黄巷（小黄楼，门票¥20，精致园林）→ 塔巷（特色小店）→ 安泰河畔（网红爱心树）——江南水乡即视感。<br>
+      <b>▸ 不要只走主街，一定要拐进两边的巷子里，精华全在里面。</b>
+    </div>
     <div>
-      <h4>浣忓棣栭€夛細涓滆鍙?/ 鍗楀悗琛?/h4>
-      <p>鍦伴搧1鍙风嚎涓?鍙风嚎浜ゆ眹澶勶紝姝ヨ涓夊潑涓冨贩5鍒嗛挓銆佽タ婀?0鍒嗛挓銆傚瀹甸€夋嫨鏋佸锛岀宸炶€佸煄蹇冭剰鍦板甫銆?/p>
+      <span class="tag">同利肉燕</span><span class="tag">永和鱼丸</span><span class="tag">没牙伯花生汤</span>
+      <span class="tag jade">小黄楼</span><span class="tag jade">爱心树</span>
+      <span class="tag outline">牛滑/捞化</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.296,26.086&name=三坊七巷" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://api.map.baidu.com/marker?location=26.086,119.296&title=三坊七巷" target="_blank" class="btn btn-outline">百度导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
     </div>
   </div>
-  <div class="quick-item fade-up">
-    <div class="quick-item-icon i-time">馃搮</div>
+
+  <div class="tip">🚌 公交约20分钟 / 🚖 打车约¥15 → 福道3号入口（梅峰山山地公园）</div>
+
+  <div class="stop-card">
+    <div><span class="stop-num">2</span><span class="stop-title">福道 —— 空中森林步道</span></div>
+    <div class="stop-meta">
+      <span>⏲ 2小时</span><span>🎟 免费</span><span class="warn" style="margin:0;padding:2px 10px">👟 必须运动鞋</span>
+    </div>
+    <div class="stop-desc">
+      全球最美步道之一，全长约19公里，全线采用<b>镂空钢架结构</b>，穿行于森林树冠之间。脚下是山谷，两侧是原生次生林——城市中央的空中走廊。<br>
+      <b>推荐走法：</b>从<b>3号入口（梅峰山山地公园）</b>进入，不走全程，走到<b>金牛山体育公园</b>段即可（约5公里），该段视野最开阔、拍照最出片。<br>
+      <b>⚠️ 务必穿运动鞋！</b>镂空钢架对薄底鞋极不友好。避开正午12-14点暴晒时段，建议14:30后进入。
+    </div>
     <div>
-      <h4>鏈€浣冲鑺傦細10鏈堚€撴骞?鏈?/h4>
-      <p>閬垮紑绂忓窞鐐庣儹澶忓銆傛槬绉嬫皵娓╁疁浜猴紙15-25掳C锛夛紝鑼夎帀鑺辩瀛ｉ棣欙紝鍐嚦鍓嶅悗鏈夋俯娉夊娲诲姩銆?/p>
+      <span class="tag red">金牛山段最佳</span><span class="tag red">建议14:30后</span><span class="tag red">运动鞋刚需</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.276,26.093&name=福道3号入口" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
     </div>
   </div>
-  <div class="quick-item fade-up">
-    <div class="quick-item-icon i-trans">馃殗</div>
+
+  <div class="tip">🚖 打车约20元（15分钟）→ 青年广场 / 🚌 公交至闽江公园站</div>
+
+  <div class="stop-card">
+    <div><span class="stop-num">3</span><span class="stop-title">青年广场 & 闽江夜景</span></div>
+    <div class="stop-meta">
+      <span>⏲ 2-3小时（含晚餐）</span><span>🎟 免费</span>
+    </div>
+    <div class="stop-desc">
+      青年会红砖楼：始建于1916年的百年红砖建筑，曾是福州基督教青年会会所。红砖拱廊极具胶片感，复古风拍照圣地。<br>
+      傍晚沿闽江步道散步，对岸<b>中洲岛</b>的欧式城堡建筑在落日余晖中宛如布达佩斯。推荐<b>18:30前到达</b>，先拍白天的红砖楼，再等亮灯后拍闽江夜景。<br>
+      <b>🍽 晚餐推荐：</b>附近苍霞路、台江步行街有多家闽菜老店——荔枝肉、醉排骨、南煎肝是福州人待客三件套。
+    </div>
     <div>
-      <h4>甯傚唴浜ら€氾細銆宔绂忓窞銆岮PP</h4>
-      <p>鍦伴搧鎵爜浜?鎶橈紝鍏氦绾胯矾鍥涢€氬叓杈俱€傚叡浜崟杞﹁鐩栧競鍖猴紝鐭€斾唬姝ラ閫夈€?/p>
+      <span class="tag">荔枝肉</span><span class="tag">南煎肝</span><span class="tag jade">中洲岛</span><span class="tag red">18:30前到达</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.310,26.059&name=青年广场" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
     </div>
   </div>
+
+  <div class="day-title" id="day2">Day 2 · 山海之间</div>
+  <div class="day-sub">登鼓山望东海，探马尾船政风云，夜游百年商埠上下杭。第二天走得更远、看得更深。</div>
+
+  <div class="stop-card">
+    <div><span class="stop-num">1</span><span class="stop-title">鼓山 —— 福州的城市阳台</span></div>
+    <div class="stop-meta">
+      <span>⏲ 3-4小时</span><span>🚗 2号线鼓山站</span><span>🎟 涌泉寺¥40 / 缆车单程¥50</span>
+    </div>
+    <div class="stop-desc">
+      福州最负盛名的地标，海拔925米，因山顶巨石如鼓得名。山中有千年古刹<b>涌泉寺</b>（始建于908年），「闽刹之冠」，香火鼎盛。<br>
+      <b>两种游玩方式：</b><br>
+      🥾 <b>古道登山：</b>从「鼓山十八景」古道上行，约1-1.5小时登顶。沿途<b>摩崖石刻300余处</b>——历代文人题刻，誉为「东南碑林」。<br>
+      🚡 <b>缆车上山：</b>适合体力有限或时间紧，单程¥50，约20分钟到顶。<br>
+      <b>⚠️ 建议早起出发（8:30前），避开10点后旅行团高峰。</b>
+    </div>
+    <div>
+      <span class="tag">涌泉寺</span><span class="tag">摩崖石刻</span><span class="tag jade">早起避高峰</span><span class="tag jade">缆车¥50</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.389,26.046&name=鼓山" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
+    </div>
+  </div>
+
+  <div class="tip">🚖 打车约¥30（30分钟）→ 马尾区船政文化景区</div>
+
+  <div class="stop-card">
+    <div><span class="stop-num">2</span><span class="stop-title">船政文化景区 —— 中国近代海军摇篮</span></div>
+    <div class="stop-meta">
+      <span>⏲ 2.5小时</span><span>🎟 博物馆免费 / 演出¥128起</span>
+    </div>
+    <div class="stop-desc">
+      1866年左宗棠在此创办福州船政局，建中国第一艘千吨级蒸汽军舰<b>「万年青」</b>号。红砖厂房、百年轮机车间与闽江码头交织，<b>工业风浓郁，极为出片</b>。<br>
+      <b>推荐顺序：</b>船政文化博物馆 → 轮机车间 → 绘事院 → 罗星塔<br>
+      <b>🎬 《最忆船政》沉浸式演出：</b>大型实景演艺，光影与戏剧再现船政风云，强烈推荐（需提前购票，¥128起，建议提前一天预订）。
+    </div>
+    <div>
+      <span class="tag">轮机车间</span><span class="tag jade">罗星塔</span><span class="tag red">最忆船政¥128</span><span class="tag red">工业风拍照</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.451,25.998&name=船政文化景区" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
+    </div>
+  </div>
+
+  <div class="tip">🚌 公交约40分钟 / 🚖 打车约¥35 → 上下杭历史文化街区</div>
+
+  <div class="stop-card">
+    <div><span class="stop-num">3</span><span class="stop-title">上下杭 —— 百年商埠的旧梦新颜</span></div>
+    <div class="stop-meta">
+      <span>⏲ 2-3小时（含晚餐）</span><span>🎟 免费</span>
+    </div>
+    <div class="stop-desc">
+      宋元时期即为闽江下游重要港口，曾是福州<b>最繁华商业中心</b>。「杭」即航道之意。修复后的古厝沿河排开，红灯笼映衬白墙黛瓦，比三坊七巷更安静、更本地。<br>
+      <b>▸ 三捷河两岸：</b>沿河步道是上下杭最美部分——古桥、石阶、红灯笼倒映水中，夜景尤其出片。<br>
+      <b>🍽 晚餐：</b>周边有大量福州本帮菜馆和宵夜档。推荐锅边糊、芋泥、海蛎饼——都是福州人的深夜食堂标配。<br>
+      <b>⚠️ 上下杭部分商铺晚上9点后逐渐收摊。建议18:00-20:30之间游览用餐。</b>
+    </div>
+    <div>
+      <span class="tag">锅边糊</span><span class="tag">海蛎饼</span><span class="tag jade">三捷河夜景</span><span class="tag red">商铺21点收摊</span>
+    </div>
+    <div style="margin-top:12px">
+      <a href="https://uri.amap.com/marker?position=119.308,26.061&name=上下杭" target="_blank" class="btn btn-red">高德导航</a>
+      <a href="https://page.didiglobal.com/global/passenger/index" target="_blank" class="btn btn-outline">打车去这里</a>
+    </div>
+  </div>
+  <div class="extras" id="extras">
+    <div class="day-title">鎵╁睍琛岀▼ 路 濡傛灉杩樻湁涓€澶?/div>
+    <div class="day-sub">鏃堕棿鍏呰鐨勮瘽锛岃繖涓変釜鏂瑰悜鍚勫叿鐗硅壊锛氬彜闀囧簳钑淬€佷竾鍥藉缓绛戙€佽刀娴疯笍娴€?/div>
+
+    <div class="extra-card">
+      <h4>馃彉 铻烘床鍙ら晣 鈥斺€?甯濆笀涔嬩埂</h4>
+      <p>娓呭厜缁笣甯堥檲瀹濈悰鏁呴噷锛岀敯铻哄濞樹紶璇村彂婧愬湴銆傚瓟搴欍€侀檲姘忎簲妤笺€佽灪娲叉俯娉夆€斺€旇窛甯傚尯绾?5鍏噷锛屽湴閾?鍙风嚎鐩磋揪銆?br>
+      鈴?3-4灏忔椂 | 馃殫 5鍙风嚎铻烘床绔?| 馃師 鍏嶈垂</p>
+    </div>
+
+    <div class="extra-card">
+      <h4>馃彌 鐑熷彴灞?鈥斺€?绂忓窞鐗堛€岄紦娴笨銆?/h4>
+      <p>浜斿彛閫氬晢閬楃暀鐨?7鍥介浜嬮銆佹磱琛屻€佹暀鍫傗€斺€旂煶鍘濇暀鍫傜殑閾舵潖鍜岃€佹磱鎴跨殑鐖北铏庢瀯鎴愮嫭鐗圭殑涓囧浗寤虹瓚鍗氱墿棣嗐€?br>
+      鈴?3-4灏忔椂 | 馃殫 1鍙风嚎涓婅棨绔?| 馃師 鍏嶈垂</p>
+    </div>
+
+    <div class="extra-card">
+      <h4>馃寠 杩炴睙 / 缃楁簮 鈥斺€?璧舵捣韪忔氮</h4>
+      <p>婊╂秱璧舵捣锛堟寲铔よ湂鎹夎瀮锜癸級銆佺綏婧愭咕娴锋磱涓栫晫锛堢櫧椴告捣璞毬?80锛夈€佽吹瀹夋俯娉夛紙楼168璧凤級銆佺爜澶存捣椴滃ぇ鎺掓。銆?br>
+      鈴?1澶?| 馃殫 绾?-1.5灏忔椂杞︾▼ | 馃師 楼168璧?/p>
+    </div>
+  </div>
+
+  <div class="day-title" id="tips">瀹炵敤淇℃伅 路 琛岀▼璐村＋</div>
+  <div class="day-sub">璁╀綘鐨勭宸炰箣琛屾洿鍔犻『鐣呯殑灏忕粏鑺傘€?/div>
+
+  <div class="info-grid">
+    <div class="info-card"><h5>鈽€锔?闃叉檼涓庤ˉ姘?/h5><p>绂忓窞澶忓闀夸笖鐐庣儹锛?-10鏈堬級锛屼綋鎰熸俯搴﹀父瓒?5鈩冦€傚姟蹇呮秱闃叉檼銆佹埓甯藉瓙锛屾瘡澶╄嚦灏戝枬2L姘淬€?/p></div>
+    <div class="info-card"><h5>馃憻 绌胯繍鍔ㄩ瀷鏄垰闇€</h5><p>绂忛亾闀傜┖閽㈡灦銆佺儫鍙板北鍧￠亾銆佷笂涓嬫澀鐭虫澘璺€斺€旇杽搴曢瀷銆侀珮璺熼瀷鏄鑷繁鑴氱殑涓嶅皧閲嶃€?/p></div>
+    <div class="info-card"><h5>馃暟 鑰佸瓧鍙疯惀涓氭椂闂?/h5><p>寰堝鑰佸簵涓嬪崍2-4鐐逛紤鎭紝鍗栧畬鍗冲叧闂ㄣ€傚缓璁?b>涓婂崍11鐐瑰墠鎴栦笅鍗?鐐瑰悗</b>鍓嶅線銆?/p></div>
+    <div class="info-card"><h5>馃摫 蹇呭APP</h5><p>銆宔绂忓窞銆嶆壂鐮佷箻鍦伴搧9鎶橈紱銆屽ぇ浼楃偣璇勩€嶇湅椁愬巺璇勪环锛涖€岄珮寰峰湴鍥俱€嶆琛屽鑸湪绂忓窞姣旂櫨搴︽洿鍑嗐€?/p></div>
+    <div class="info-card"><h5>馃嵉 鑼夎帀鑺辫尪浼存墜绀?/h5><p>绂忓窞鏄笘鐣岃寜鑾夎姳鑼跺彂婧愬湴銆備笂涓嬫澀鍜屽崡鍚庤鑼跺簞鍙瘯楗悗璐拱锛屾帹鑽愩€屾槬浼︺€嶆垨銆屼腑鑾夈€嶏紝楼50-150/缃愩€?/p></div>
+    <div class="info-card"><h5>馃棧 璇█涓庢矡閫?/h5><p>绂忓窞璇濓紙闂戒笢璇級闈炲父闅炬噦锛屼絾甯傚尯鍐呮櫘閫氳瘽瀹屽叏閫氱敤銆備竴鍙ャ€屼斧闇搞€嶏紙寰堟锛夊彲浠ユ媺杩戣窛绂伙紒</p></div>
+  </div>
+
+  <div class="footer">
+    <b>姒曞煄璁?/b><br>
+    绂忓窞锛屼竴搴у€煎緱鎱笅鏉ョ殑鍩庡競銆?br>
+    漏 2026 鏈夌涔嬪窞 路 涓ゅぉ涓€澶滄繁搴︽梾琛屾敾鐣?br><br>
+    <a href="#">鈫?鍥炲埌椤堕儴</a>
+  </div>
+
 </div>
-
-<!-- ======== DAY 1 ======== -->
-<span class="section-eyebrow fade-up">Day 1</span>
-<h2 class="section-title fade-up" id="day1">鍙ら煹涓庣豢鎰?/h2>
-<p class="section-desc fade-up">涓夊潑涓冨贩瀵诲彜闊碉紝绂忛亾绌挎灄鎻界豢鎰忥紝闂芥睙鐣斿惞鏅氶銆傜涓€澶╃殑涓婚鏄€屾參銆嶃€?/p>
-
-<div class="day-card fade-up" id="day1-card">
-  <div class="day-card-header" onclick="toggleCard('day1-card')">
-    <div class="day-num d1">澹?/div>
-    <div class="day-header-info">
-      <div class="day-theme">鍏ㄥぉ 绾?0灏忔椂</div>
-      <div class="day-name">鍧婂贩婕 路 绌轰腑姝ラ亾 路 闂芥睙澶滄櫙</div>
-      <div class="day-route">涓夊潑涓冨贩 鈫?绂忛亾 鈫?闈掑勾骞垮満 & 闂芥睙澶滄櫙</div>
-    </div>
-    <div class="day-toggle">+</div>
-  </div>
-  <div class="day-card-body">
-    <ul class="stop-list">
-      <!-- Stop 1: 涓夊潑涓冨贩 -->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">涓夊潑涓冨贩 鈥斺€?鍗婇儴涓浗杩戜唬鍙?/span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">3灏忔椂</span></span>
-            <span class="stop-meta-item">馃殗 涓滆鍙ｇ珯C鍙?/span>
-            <span class="stop-meta-item">馃帿 琛楀尯鍏嶈垂 / 灏忛粍妤悸?0</span>
-          </div>
-          <div class="stop-desc">
-            琚獕涓?strong>銆屾槑娓呭缓绛戝崥鐗╅銆?/strong>锛屽崰鍦扮害40鍏》锛屼繚鐣?00浣欏骇鏄庢竻鍙ゅ缓绛戙€傛灄鍒欏緪銆佷弗澶嶃€佸啺蹇冦€佹灄瑙夋皯绛夌殕鍑轰簬姝ゃ€?br><br>
-            <strong>鎺ㄨ崘璺嚎锛?/strong>鍗楀悗琛楋紙涓昏锛夆啋 閮庡畼宸凤紙涓ュ鏁呭眳銆佷簩姊呬功灞嬶級鈫?榛勫贩锛堝皬榛勬ゼ锛岄棬绁?0锛岀簿鑷村洯鏋楋級鈫?濉斿贩锛堢壒鑹插皬搴楋級鈫?瀹夋嘲娌崇晹锛堢綉绾㈢埍蹇冩爲锛夆€斺€?姹熷崡姘翠埂鍗宠鎰熴€?br><br>
-            <strong>鈻?涓嶈鍙蛋涓昏</strong>锛屼竴瀹氳鎷愯繘涓よ竟鐨勫贩瀛愰噷锛岀簿鍗庡叏鍦ㄩ噷闈€?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag food">馃崪 鍚屽埄鑲夌嚂</span>
-            <span class="stop-tag food">馃 姘稿拰楸间父</span>
-            <span class="stop-tag food">馃 娌＄墮浼姳鐢熸堡</span>
-            <span class="stop-tag spot">馃彌锔?灏忛粍妤?/span>
-            <span class="stop-tag spot">馃尦 鐖卞績鏍?/span>
-            <span class="stop-tag tip">鈿狅笍 鐗涙粦/鎹炲寲鍋忔竻娣?/span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.2964,26.0837,涓夊潑涓冨贩&mode=walk&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn navi" href="https://api.map.baidu.com/direction?destination=latlng:26.0837,119.2964|name:涓夊潑涓冨贩&coord_type=gcj02&mode=walking&output=html&src=fztravel" target="_blank" rel="noopener">馃椇锔?鐧惧害瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0837&end_lng=119.2964&end_name=%E4%B8%89%E5%9D%8A%E4%B8%83%E5%B7%B7" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-
-      <div class="stop-transit">馃殞 鍏氦绾?0鍒嗛挓 / 馃殨 鎵撹溅绾?5鍏?鈫?绂忛亾3鍙峰叆鍙ｏ紙姊呭嘲灞卞湴鍏洯锛?/div>
-
-      <!-- Stop 2: 绂忛亾 -->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">绂忛亾 鈥斺€?绌轰腑妫灄姝ラ亾</span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">2灏忔椂</span></span>
-            <span class="stop-meta-item">馃帿 鍏嶈垂</span>
-            <span class="stop-meta-item">馃憻 蹇呴』杩愬姩闉?/span>
-          </div>
-          <div class="stop-desc">
-            鍏ㄧ悆鏈€缇庢琛岄亾涔嬩竴锛屽叏闀跨害19鍏噷锛屽叏绾块噰鐢?strong>闀傜┖閽㈡灦缁撴瀯</strong>锛岀┛琛屼簬妫灄鏍戝啝涔嬮棿銆傝剼涓嬫槸灞辫胺锛屼袱渚ф槸鍘熷娆＄敓鏋椻€斺€斿煄甯備腑澶殑绌轰腑璧板粖銆?br><br>
-            <strong>鎺ㄨ崘璧版硶锛?/strong>浠?strong>3鍙峰叆鍙ｏ紙姊呭嘲灞卞湴鍏洯锛?/strong>杩涘叆锛屼笉琛屽叏绋嬶紝璧板埌<strong>閲戠墰灞变綋鑲插叕鍥?/strong>娈靛嵆鍙紙绾?鍏噷锛夛紝璇ユ瑙嗛噹鏈€寮€闃斻€佹媿鐓ф渶鍑虹墖銆?br><br>
-            <strong>鈿狅笍 鍔″繀绌胯繍鍔ㄩ瀷锛?/strong>闀傜┖閽㈡灦瀵硅杽搴曢瀷鏋佷笉鍙嬪ソ銆傞伩寮€姝ｅ崍12-14鐐规毚鏅掓椂娈碉紝寤鸿14:30鍚庤繘鍏ャ€?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag spot">馃摳 閲戠墰灞辨鏈€浣?/span>
-            <span class="stop-tag tip">馃晳 寤鸿14:30鍚?/span>
-            <span class="stop-tag tip">馃憻 杩愬姩闉嬪垰闇€</span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.2810,26.0850,绂忛亾3鍙峰叆鍙?mode=walk&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0850&end_lng=119.2810&end_name=%E7%A6%8F%E9%81%933%E5%8F%B7%E5%8F%A3" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-
-      <div class="stop-transit">馃殨 鎵撹溅绾?0鍏冿紙15鍒嗛挓锛夆啋 闈掑勾骞垮満 / 馃殞 鍏氦鑷抽椊姹熷叕鍥珯</div>
-
-      <!-- Stop 3: 闈掑勾骞垮満 -->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">闈掑勾骞垮満 & 闂芥睙澶滄櫙</span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">2-3灏忔椂</span>锛堝惈鏅氶锛?/span>
-            <span class="stop-meta-item">馃帿 鍏嶈垂</span>
-          </div>
-          <div class="stop-desc">
-            <strong>闈掑勾浼氱孩鐮栨ゼ锛?/strong>濮嬩簬1916骞寸殑鐧惧勾绾㈢爾寤虹瓚锛屾浘鏄宸炲熀鐫ｆ暀闈掑勾浼氫細鎵€銆傜孩鐮栨嫳寤婃瀬鍏疯兌鐗囨劅锛屽鍙ら鎷嶇収鍦ｅ湴銆?br><br>
-            鍌嶆櫄娌块椊姹熸閬撴暎姝ワ紝瀵瑰哺<strong>涓床宀?/strong>鐨勬寮忓煄鍫″缓绛戝湪钀芥棩浣欐櫀涓疀濡傚竷杈句僵鏂€傛帹鑽?strong>18:30鍓嶅埌杈?/strong>锛屽厛鎷嶇櫧澶╃殑绾㈢爾妤硷紝鍐嶇瓑浜伅鍚庢媿闂芥睙澶滄櫙銆?br><br>
-            <strong>馃嵔锔?鏅氶鎺ㄨ崘锛?/strong>闄勮繎鑻嶉湠璺€佸彴姹熸琛岃鏈夊瀹堕椊鑿滆€佸簵鈥斺€旇崝鏋濊倝銆侀唹鎺掗銆佸崡鐓庤倽鏄宸炰汉寰呭涓変欢濂椼€?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag food">馃崠 鑽旀灊鑲?/span>
-            <span class="stop-tag food">馃嵆 鍗楃厧鑲?/span>
-            <span class="stop-tag spot">馃彴 涓床宀?/span>
-            <span class="stop-tag tip">馃摳 18:30鍓嶅埌杈?/span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3078,26.0608,闈掑勾浼氱孩鐮栨ゼ&mode=walk&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0608&end_lng=119.3078&end_name=%E9%9D%92%E5%B9%B4%E5%B9%BF%E5%9C%BA" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- ======== DAY 2 ======== -->
-<span class="section-eyebrow fade-up">Day 2</span>
-<h2 class="section-title fade-up" id="day2">灞辨捣涔嬮棿</h2>
-<p class="section-desc fade-up">鐧婚紦灞辨湜涓滄捣锛屾帰椹熬鑸规斂椋庝簯锛屽娓哥櫨骞村晢鍩犱笂涓嬫澀銆傜浜屽ぉ璧板緱鏇磋繙銆佺湅寰楁洿娣便€?/p>
-
-<div class="day-card fade-up" id="day2-card">
-  <div class="day-card-header" onclick="toggleCard('day2-card')">
-    <div class="day-num d2">璐?/div>
-    <div class="day-header-info">
-      <div class="day-theme">鍏ㄥぉ 绾?1灏忔椂</div>
-      <div class="day-name">榧撳北鐧婚珮 路 鑸规斂椋庝簯 路 鐧惧勾鍟嗗煚</div>
-      <div class="day-route">榧撳北娑屾硥瀵?鈫?鑸规斂鏂囧寲鏅尯 鈫?涓婁笅鏉?/div>
-    </div>
-    <div class="day-toggle">+</div>
-  </div>
-  <div class="day-card-body">
-    <ul class="stop-list">
-      <!-- Stop 1: 榧撳北 -->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">榧撳北 鈥斺€?绂忓窞鐨勫煄甯傞槼鍙?/span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">3-4灏忔椂</span></span>
-            <span class="stop-meta-item">馃殗 2鍙风嚎榧撳北绔?/span>
-            <span class="stop-meta-item">馃帿 娑屾硥瀵郝?0 / 缂嗚溅鍗曠▼楼50</span>
-          </div>
-          <div class="stop-desc">
-            绂忓窞鏈€璐熺洓鍚嶇殑鍦版爣锛屾捣鎷?25绫筹紝鍥犲北椤跺法鐭冲榧撳緱鍚嶃€傚北涓湁<strong>鍗冨勾鍙ゅ埞娑屾硥瀵?/strong>锛堝寤轰簬908骞达級锛屻€岄椊鍒逛箣鍐犮€嶏紝棣欑伀榧庣洓銆?br><br>
-            <strong>涓ょ娓哥帺鏂瑰紡锛?/strong><br>
-            馃ゾ <strong>鍙ら亾鐧诲北锛?/strong>浠庛€岄紦灞卞崄鍏櫙銆嶅彜閬撲笂琛岋紝绾?-1.5灏忔椂鐧婚《銆傛部閫?strong>鎽╁礀鐭冲埢300浣欏</strong>鈥斺€斿巻浠ｆ枃浜洪鍒伙紝瑾変负銆屼笢鍗楃鏋椼€嶃€?br>
-            馃殹 <strong>缂嗚溅涓婂北锛?/strong>閫傚悎浣撳姏鏈夐檺鎴栨椂闂寸揣锛屽崟绋嬄?0锛岀害20鍒嗛挓鍒伴《銆?br><br>
-            鈿狅笍 寤鸿鏃╄捣鍑哄彂锛?:30鍓嶏級锛岄伩寮€10鐐瑰悗鏃呰鍥㈤珮宄般€?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag spot">鉀╋笍 娑屾硥瀵?/span>
-            <span class="stop-tag spot">鉁嶏笍 鎽╁礀鐭冲埢</span>
-            <span class="stop-tag tip">馃寘 鏃╄捣閬块珮宄?/span>
-            <span class="stop-tag tip">馃殹 缂嗚溅楼50</span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3830,26.0590,榧撳北娑屾硥瀵?mode=car&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0590&end_lng=119.3830&end_name=%E9%BC%93%E5%B1%B1%E6%B6%8C%E6%B3%89%E5%AF%BA" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-
-      <div class="stop-transit">馃殨 鎵撹溅绾β?0锛?0鍒嗛挓锛夆啋 椹熬鍖鸿埞鏀挎枃鍖栨櫙鍖?/div>
-
-      <!-- Stop 2: 鑸规斂 -->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">鑸规斂鏂囧寲鏅尯 鈥斺€?涓浗杩戜唬娴峰啗鎽囩</span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">2.5灏忔椂</span></span>
-            <span class="stop-meta-item">馃帿 鍗氱墿棣嗗厤璐?/ 婕斿嚭楼128璧?/span>
-          </div>
-          <div class="stop-desc">
-            1866骞村乏瀹楁鍦ㄦ鍒涘姙绂忓窞鑸规斂灞€锛屽缓涓浗绗竴鑹樺崈鍚ㄧ骇钂告苯鍐涜埌<strong>銆屼竾骞撮潚銆?/strong>鍙枫€傜孩鐮栧巶鎴裤€佺櫨骞磋疆鏈鸿溅闂翠笌闂芥睙鐮佸ご浜ょ粐锛?strong>宸ヤ笟椋庢祿閮侊紝鏋佷负鍑虹墖</strong>銆?br><br>
-            <strong>鎺ㄨ崘椤哄簭锛?/strong>鑸规斂鏂囧寲鍗氱墿棣?鈫?杞満杞﹂棿 鈫?缁樹簨闄?鈫?缃楁槦濉?br>
-            馃幁 <strong>銆婃渶蹇嗚埞鏀裤€嬫矇娴稿紡婕斿嚭锛?/strong>澶у瀷瀹炴櫙婕旇壓锛屽厜褰变笌鎴忓墽鍐嶇幇鑸规斂椋庝簯锛屽己鐑堟帹鑽愶紙闇€鎻愬墠璐エ锛屄?28璧凤紝寤鸿鎻愬墠涓€澶╅璁級銆?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag spot">馃彮 杞満杞﹂棿</span>
-            <span class="stop-tag spot">馃椉 缃楁槦濉?/span>
-            <span class="stop-tag tip">馃幁 鏈€蹇嗚埞鏀柯?28</span>
-            <span class="stop-tag tip">馃摳 宸ヤ笟椋庢媿鐓?/span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.4600,26.0000,鑸规斂鏂囧寲鏅尯&mode=car&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0000&end_lng=119.4600&end_name=%E8%88%B9%E6%94%BF%E6%96%87%E5%8C%96%E6%99%AF%E5%8C%BA" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-
-      <div class="stop-transit">馃殞 鍏氦绾?0鍒嗛挓 / 馃殨 鎵撹溅绾β?5 鈫?涓婁笅鏉巻鍙叉枃鍖栬鍖?/div>
-
-      <!-- Stop 3: 涓婁笅鏉?-->
-      <li class="stop-item">
-        <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
-        <div class="stop-body">
-          <div class="stop-top">
-            <span class="stop-num">绗?绔?/span>
-            <span class="stop-title">涓婁笅鏉?鈥斺€?鐧惧勾鍟嗗煚鐨勬棫姊︽柊棰?/span>
-          </div>
-          <div class="stop-meta">
-            <span class="stop-meta-item">馃晲 <span class="hl">2-3灏忔椂</span>锛堝惈鏅氶锛?/span>
-            <span class="stop-meta-item">馃帿 鍏嶈垂</span>
-          </div>
-          <div class="stop-desc">
-            瀹嬪厓鏃舵湡鍗充负闂芥睙涓嬫父閲嶈娓彛锛屾浘鏄宸?strong>鏈€绻佸崕鍟嗕笟涓績</strong>銆傘€屾澀銆嶅嵆鑸亾涔嬫剰銆備慨澶嶅悗鐨勫彜鍘濇部娌虫帓寮€锛岀孩鐏鏄犺‖鐧藉榛涚摝锛屾瘮涓夊潑涓冨贩<strong>鏇村畨闈欍€佹洿鏈湴</strong>銆?br><br>
-            <strong>鈻?涓夋嵎娌充袱宀革細</strong>娌挎渤姝ラ亾鏄笂涓嬫澀鏈€缇庨儴鍒嗏€斺€斿彜妗ャ€佺煶闃躲€佺孩鐏鍊掓槧姘翠腑锛屽鏅挨鍏跺嚭鐗囥€?br>
-            <strong>馃嵔锔?鏅氶锛?/strong>鍛ㄨ竟鏈夊ぇ閲忕宸炴湰甯彍棣嗗拰瀹靛妗ｃ€傛帹鑽愰攨杈圭硦銆佽妺娉ャ€佹捣铔庨ゼ鈥斺€旈兘鏄宸炰汉鐨勬繁澶滈鍫傛爣閰嶃€?br><br>
-            鈿狅笍 涓婁笅鏉儴鍒嗗晢閾烘櫄涓?鐐瑰悗閫愭笎鏀舵憡銆傚缓璁?strong>18:00-20:30</strong>涔嬮棿娓歌鐢ㄩ銆?          </div>
-          <div class="stop-highlights">
-            <span class="stop-tag food">馃 閿呰竟绯?/span>
-            <span class="stop-tag food">馃Κ 娴疯泿楗?/span>
-            <span class="stop-tag spot">馃寜 涓夋嵎娌冲鏅?/span>
-            <span class="stop-tag tip">馃晿 鍟嗛摵21鐐规敹鎽?/span>
-          </div>
-          <div class="stop-actions">
-            <a class="stop-btn map" href="https://uri.amap.com/navigation?to=119.3048,26.0633,涓婁笅鏉巻鍙叉枃鍖栬鍖?mode=walk&callnative=1" target="_blank" rel="noopener">馃Л 楂樺痉瀵艰埅</a>
-            <a class="stop-btn didi" href="https://page.didiglobal.com/global/passenger/preorder?end_lat=26.0633&end_lng=119.3048&end_name=%E4%B8%8A%E4%B8%8B%E6%9D%AD" target="_blank" rel="noopener">馃殫 鎵撹溅鍘昏繖閲?/a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
-
-<!-- ======== MORE ======== -->
-<span class="section-eyebrow fade-up">鎵╁睍琛岀▼</span>
-<h2 class="section-title fade-up" id="more">濡傛灉杩樻湁涓€澶?/h2>
-<p class="section-desc fade-up">鏃堕棿鍏呰鐨勮瘽锛岃繖涓変釜鏂瑰悜鍚勫叿鐗硅壊锛氬彜闀囧簳钑淬€佷竾鍥藉缓绛戙€佽刀娴疯笍娴€?/p>
-
-<div class="more-grid">
-  <!-- 铻烘床 -->
-  <div class="more-card fade-up">
-    <div class="more-card-image-wrapper">
-      <img class="more-card-image" src="https://images.unsplash.com/photo-1551004766-2a56b76464e4?auto=format&fit=crop&w=600&q=80" alt="铻烘床鍙ら晣" loading="lazy">
-    </div>
-    <div class="more-card-body">
-      <span class="more-card-tag">鍙ら晣搴曡暣</span>
-      <h4>铻烘床鍙ら晣 鈥斺€?甯濆笀涔嬩埂</h4>
-      <p>娓呬唬甯濆笀闄堝疂鐞涙晠閲岋紝鐢拌灪濮戝浼犺鍙戞簮鍦般€傚瓟搴欍€侀檲姘忎簲妤笺€佽灪娲叉俯娉夆€斺€旇窛甯傚尯浠?5鍏噷锛屽湴閾?鍙风嚎鐩磋揪銆?/p>
-      <div class="more-card-meta"><span>馃晲 3-4灏忔椂</span><span>馃殗 5鍙风嚎铻烘床绔?/span><span>馃帿 鍏嶈垂</span></div>
-    </div>
-  </div>
-
-  <!-- 鐑熷彴灞?-->
-  <div class="more-card fade-up">
-    <div class="more-card-image-wrapper">
-      <img class="more-card-image" src="images/yantaishan.jpg" alt="鐑熷彴灞? loading="lazy">
-    </div>
-    <div class="more-card-body">
-      <span class="more-card-tag">涓囧浗寤虹瓚</span>
-      <h4>鐑熷彴灞?鈥斺€?绂忓窞鐗堛€岄紦娴笨銆?/h4>
-      <p>浜斿彛閫氬晢閬楃暀鐨?7鍥介浜嬮銆佹磱琛屻€佹暀鍫傗€斺€旂煶鍘濇暀鍫傜殑閾舵潖鍜岃€佹磱鎴跨殑鐖北铏庢瀯鎴愮嫭鐗圭殑涓囧浗寤虹瓚鍗氱墿棣嗐€?/p>
-      <div class="more-card-meta"><span>馃晲 3-4灏忔椂</span><span>馃殗 1鍙风嚎涓婅棨绔?/span><span>馃帿 鍏嶈垂</span></div>
-    </div>
-  </div>
-
-  <!-- 杩炴睙 -->
-  <div class="more-card fade-up">
-    <div class="more-card-image-wrapper">
-      <img class="more-card-image" src="https://images.unsplash.com/photo-1580278702238-7bfeb9fd442c?auto=format&fit=crop&w=600&q=80" alt="杩炴睙娴锋花" loading="lazy">
-    </div>
-    <div class="more-card-body">
-      <span class="more-card-tag">娴锋花娓旀潙</span>
-      <h4>杩炴睙 / 缃楁簮 鈥斺€?璧舵捣韪忔氮</h4>
-      <p>婊╂秱璧舵捣锛堟寲铔よ湂鎹夎瀮锜癸級銆佺綏婧愭咕娴锋磱涓栫晫锛堢櫧椴告捣璞毬?80锛夈€佽吹瀹夋俯娉夛紙楼168璧凤級銆佺爜澶存捣椴滃ぇ鎺掓。銆?/p>
-      <div class="more-card-meta"><span>馃晲 1澶?/span><span>馃殫 绾?-1.5灏忔椂</span><span>馃帿 楼168璧?/span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ======== TIPS ======== -->
-<span class="section-eyebrow fade-up">瀹炵敤淇℃伅</span>
-<h2 class="section-title fade-up" id="tips">琛岀▼璐村＋</h2>
-<p class="section-desc fade-up">璁╀綘鐨勭宸炰箣琛屾洿鍔犻『鐣呯殑灏忕粏鑺傘€?/p>
-
-<div class="tips-wrapper fade-up">
-  <div class="tips-grid">
-    <div class="tip-item">
-      <div class="tip-icon">鈽€锔?/div>
-      <div class="tip-text">
-        <h5>闃叉檼涓庤ˉ姘?/h5>
-        <p>绂忓窞澶忓闀夸笖鐐庣儹锛?-10鏈堬級锛屼綋鎰熸俯搴﹀父瓒?5掳C銆傚姟蹇呮秱闃叉檼銆佹埓甯藉瓙锛屾瘡澶╄嚦灏戝枬2L姘淬€?/p>
-      </div>
-    </div>
-    <div class="tip-item">
-      <div class="tip-icon">馃憻</div>
-      <div class="tip-text">
-        <h5>绌胯繍鍔ㄩ瀷鏄垰闇€</h5>
-        <p>绂忛亾闀傜┖閽㈡灦銆佺儫鍙板北鍧￠亾銆佷笂涓嬫澀鐭虫澘璺€斺€旇杽搴曢瀷銆侀珮璺熼瀷鏄鑷繁鑴氱殑涓嶅皧閲嶃€?/p>
-      </div>
-    </div>
-    <div class="tip-item">
-      <div class="tip-icon">馃晲</div>
-      <div class="tip-text">
-        <h5>鑰佸瓧鍙疯惀涓氭椂闂?/h5>
-        <p>寰堝鑰佸簵涓嬪崍2-4鐐逛紤鎭紝鍗栧畬鍗冲叧闂ㄣ€傚缓璁?strong>涓婂崍11鐐瑰墠鎴栦笅鍗?鐐瑰悗</strong>鍓嶅線銆?/p>
-      </div>
-    </div>
-    <div class="tip-item">
-      <div class="tip-icon">馃摫</div>
-      <div class="tip-text">
-        <h5>蹇呭APP</h5>
-        <p>銆宔绂忓窞銆嶆壂鐮佷箻鍦伴搧9鎶橈紱銆屽ぇ浼楃偣璇勩€嶇湅椁愬巺璇勪环锛涖€岄珮寰峰湴鍥俱€嶆琛屽鑸湪绂忓窞姣旂櫨搴︽洿鍑嗐€?/p>
-      </div>
-    </div>
-    <div class="tip-item">
-      <div class="tip-icon">馃嵉</div>
-      <div class="tip-text">
-        <h5>鑼夎帀鑺辫尪浼存墜绀?/h5>
-        <p>绂忓窞鏄笘鐣岃寜鑾夎姳鑼跺彂婧愬湴銆備笂涓嬫澀鍜屽崡鍚庤鑼跺簞鍙瘯楗悗璐拱锛屾帹鑽愩€屾槬浼︺€嶆垨銆屼腑鑾夈€嶏紝楼50-150/缃愩€?/p>
-      </div>
-    </div>
-    <div class="tip-item">
-      <div class="tip-icon">馃棧锔?/div>
-      <div class="tip-text">
-        <h5>璇█涓庢矡閫?/h5>
-        <p>绂忓窞璇濓紙闂戒笢璇級闈炲父闅炬噦锛屼絾甯傚尯鍐呮櫘閫氳瘽瀹屽叏閫氱敤銆備竴鍙ャ€屼斧闇搞€嶏紙寰堟锛夊彲浠ユ媺杩戣窛绂伙紒</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer fade-up">
-  <strong>姒曡璁?/strong>
-  绂忓窞锛屼竴搴у€煎緱鎱笅鏉ョ殑鍩庡競銆?  <p style="margin-top:8px;">漏 2026 鏈夌涔嬪窞 路 涓ゅぉ涓€澶滄繁搴︽梾琛屾敾鐣?/p>
-</footer>
-
-</div><!-- /wrapper -->
-
-<!-- Back to Top -->
-<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">鈫?/button>
 
 <script>
-/* ===== Nav scroll effect ===== */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
-
-/* ===== Nav active state ===== */
-const sections = document.querySelectorAll('h2[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
-  navLinks.forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', function() {
+    document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
+    this.classList.add('active');
   });
-});
-
-/* ===== Back to top ===== */
-const backTop = document.getElementById('backTop');
-window.addEventListener('scroll', () => backTop.classList.toggle('visible', window.scrollY > 600));
-
-/* ===== Card expand/collapse ===== */
-function toggleCard(id) {
-  document.getElementById(id).classList.toggle('expanded');
-}
-
-/* ===== Intersection Observer for fade-up animations ===== */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
-
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-/* ===== Auto-expand Day 1 on load ===== */
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => document.getElementById('day1-card').classList.add('expanded'), 600);
 });
 </script>
 
 </body>
 </html>
-
