@@ -134,14 +134,6 @@ body::after {
   position: relative; overflow: hidden;
 }
 .hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(0deg, var(--fz-stone) 0%, transparent 100%); z-index: 1; }
-.hero-particles { position: absolute; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
-.hero-particle { position: absolute; border-radius: 50%; animation: heroFloat 8s ease-in-out infinite; }
-.hero-particle:nth-child(1) { width: 6px; height: 6px; background: rgba(200,164,92,.3); left: 15%; top: 60%; animation-delay: 0s; }
-.hero-particle:nth-child(2) { width: 4px; height: 4px; background: rgba(200,164,92,.25); left: 75%; top: 40%; animation-delay: -2s; }
-.hero-particle:nth-child(3) { width: 5px; height: 5px; background: rgba(228,208,160,.2); left: 50%; top: 70%; animation-delay: -4s; }
-.hero-particle:nth-child(4) { width: 3px; height: 3px; background: rgba(200,164,92,.35); left: 85%; top: 55%; animation-delay: -6s; }
-.hero-particle:nth-child(5) { width: 7px; height: 7px; background: rgba(140,36,37,.15); left: 30%; top: 45%; animation-delay: -3s; }
-@keyframes heroFloat { 0%,100% { transform: translateY(0) translateX(0); opacity: .5; } 25% { transform: translateY(-30px) translateX(15px); opacity: .8; } 50% { transform: translateY(-15px) translateX(-10px); opacity: .4; } 75% { transform: translateY(-40px) translateX(5px); opacity: .6; } }
 .hero::before {
   content: ""; position: absolute; inset: 0;
   background:
@@ -152,8 +144,6 @@ body::after {
     radial-gradient(circle 2px at 65% 88%, rgba(228,208,160,0.10) 0%, transparent 100%);
 }
 .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
-.hero-label { animation: labelIn .7s var(--ease) .3s both; }
-@keyframes labelIn { from { opacity: 0; transform: rotate(-8deg) translateY(-12px); } to { opacity: 1; transform: rotate(-4deg) translateY(0); } }
 .hero-label {
   display: inline-block; font-family: var(--font-accent);
   font-size: 1.2rem; color: var(--fz-gold-light);
@@ -162,8 +152,6 @@ body::after {
   transform: rotate(-4deg); margin-bottom: 28px;
   opacity: 0;
 }
-.hero h1 { animation: titleUp .8s var(--ease) .5s both; }
-@keyframes titleUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 6vw, 4.8rem);
@@ -175,8 +163,6 @@ body::after {
   font-family: var(--font-accent); font-style: normal;
   color: var(--fz-gold-light); font-size: 0.75em;
 }
-.hero-desc { animation: fadeIn 1s var(--ease) .7s both; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .hero-desc {
   font-size: 1.05rem; color: rgba(255,255,248,0.55);
   max-width: 560px; line-height: 1.7; opacity: 0;
@@ -544,16 +530,12 @@ body::after {
 @media (max-width: 768px) {
   .wrapper { padding: calc(var(--grid) * 2) calc(var(--grid) * 2); }
   .hero { min-height: 55vh; padding: 100px 20px 80px; }
-  .hero h1 { animation: titleUp .8s var(--ease) .5s both; }
-@keyframes titleUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-.hero h1 { font-size: 2.2rem; }
+  .hero h1 { font-size: 2.2rem; }
   .hero-stats { gap: 16px; }
   .hero-stat-num { font-size: 1.2rem; }
   .hero-stat-label { font-size: 0.68rem; }
   .hero-arc { height: 40px; }
-  .hero-desc { animation: fadeIn 1s var(--ease) .7s both; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-.hero-desc { font-size: 0.88rem; }
+  .hero-desc { font-size: 0.88rem; }
   .quick-bar { grid-template-columns: 1fr; }
   .day-card-header { padding: calc(var(--grid) * 3) calc(var(--grid) * 3); }
   .stop-item { padding: calc(var(--grid) * 2.5) calc(var(--grid) * 3); }
@@ -571,9 +553,7 @@ body::after {
 .reveal.visible { opacity: 1; transform: translateY(0); }
 /* Stats counter pulse */
 @keyframes countUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-.stat-num { animation: countPop .6s var(--ease) both; }
-@keyframes countPop { 0% { opacity: 0; transform: scale(.5); } 60% { transform: scale(1.15); } 100% { opacity: 1; transform: scale(1); } }
-.stat-num {
+.stat-num { animation: countUp .6s var(--ease) both; }
 .stat-item:nth-child(2) .stat-num { animation-delay: .15s; }
 .stat-item:nth-child(3) .stat-num { animation-delay: .3s; }
 /* Floating jasmine particles */
