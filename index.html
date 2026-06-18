@@ -537,7 +537,23 @@ body::after {
   .more-grid { grid-template-columns: 1fr; }
   .nav-links a { font-size: 0.75rem; padding: 5px 10px; }
 }
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+/* Stats counter pulse */
+@keyframes countUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.stat-num { animation: countUp .6s var(--ease) both; }
+.stat-item:nth-child(2) .stat-num { animation-delay: .15s; }
+.stat-item:nth-child(3) .stat-num { animation-delay: .3s; }
+/* Floating jasmine particles */
+.jasmine-particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0; font-size: 1.2rem; }
+@keyframes floatUp { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 20% { opacity: .4; } 100% { opacity: 0; transform: translateY(-120px) rotate(40deg); } }
+/* Nav link active indicator pulse */
+.nav-links a.active::before { content: ""; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--fz-red); border-radius: 50%; animation: dotPulse 2s ease-in-out infinite; }
+@keyframes dotPulse { 0%,100%{ opacity: .4; transform: translateX(-50%) scale(.8); } 50%{ opacity: 1; transform: translateX(-50%) scale(1.2); } }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -623,7 +639,7 @@ body::after {
   <div class="day-card-body">
     <ul class="stop-list">
       <!-- Stop 1: 三坊七巷 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -658,7 +674,7 @@ body::after {
       <div class="stop-transit">🚌 公交约30分钟 / 🚕 打车约15元 → 福道3号入口（梅峰山地公园）</div>
 
       <!-- Stop 2: 福道 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -690,7 +706,7 @@ body::after {
       <div class="stop-transit">🚕 打车约20元（15分钟）→ 青年广场 / 🚌 公交至闽江公园站</div>
 
       <!-- Stop 3: 青年广场 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -740,7 +756,7 @@ body::after {
   <div class="day-card-body">
     <ul class="stop-list">
       <!-- Stop 1: 鼓山 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -775,7 +791,7 @@ body::after {
       <div class="stop-transit">🚕 打车约¥30（20分钟）→ 马尾区船政文化景区</div>
 
       <!-- Stop 2: 船政 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot sd-jade"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -807,7 +823,7 @@ body::after {
       <div class="stop-transit">🚌 公交约40分钟 / 🚕 打车约¥35 → 上下杭历史文化街区</div>
 
       <!-- Stop 3: 上下杭 -->
-      <li class="stop-item">
+      <li class="stop-item reveal">
         <div class="stop-marker"><span class="stop-dot sd-gold"></span></div>
         <div class="stop-body">
           <div class="stop-top">
@@ -992,5 +1008,80 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+(function(){
+  var $=function(s){return document.querySelectorAll(s)};
+
+  // Fallback: show everything if no GSAP
+  if(!window.gsap||!window.ScrollTrigger){
+    $('.reveal').forEach(function(e){e.classList.add('visible')});
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Hero parallax
+  gsap.to('.hero',{backgroundPosition:'50% 30%',ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}
+  });
+
+  // Stats counter
+  $('.stat-num').forEach(function(el,i){
+    gsap.fromTo(el,{opacity:0,y:16},{opacity:1,y:0,duration:.5,delay:.2+i*.15,
+      scrollTrigger:{trigger:'.stats-bar',start:'top 85%'}
+    });
+  });
+
+  // Stop cards reveal
+  $('.stop-item').forEach(function(el,i){
+    gsap.fromTo(el,{opacity:0,y:36},{opacity:1,y:0,duration:.7,delay:i*.08,
+      scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}
+    });
+  });
+
+  // Info cards stagger reveal
+  $('.info-card').forEach(function(el,i){
+    gsap.fromTo(el,{opacity:0,y:24},{opacity:1,y:0,duration:.5,delay:i*.06,
+      scrollTrigger:{trigger:'.info-row',start:'top 88%'}
+    });
+  });
+
+  // More cards reveal
+  $('.more-card').forEach(function(el,i){
+    gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.6,delay:i*.1,
+      scrollTrigger:{trigger:'.extras-grid',start:'top 88%'}
+    });
+  });
+
+  // Jasmine particles - sparse, tasteful
+  var jasmine=['🍃','🌿','🌸','✨'];
+  setInterval(function(){
+    if(document.hidden)return;
+    var p=document.createElement('span');
+    p.className='jasmine-particle';
+    p.textContent=jasmine[Math.floor(Math.random()*jasmine.length)];
+    p.style.left=Math.random()*100+'%';
+    p.style.top=(60+Math.random()*40)+'%';
+    p.style.animation='floatUp '+(4+Math.random()*4)+'s ease-out forwards';
+    document.body.appendChild(p);
+    setTimeout(function(){p.remove()},8000);
+  },3000);
+
+  // Active nav highlight on scroll
+  var sections=['hero','day1','day2','more'];
+  window.addEventListener('scroll',function(){
+    var sy=window.scrollY+100;
+    sections.forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el)return;
+      var link=document.querySelector('.nav-links a[href="#'+id+'"]');
+      if(!link)return;
+      if(el.offsetTop<=sy&&el.offsetTop+el.offsetHeight>sy){
+        $('.nav-links a').forEach(function(a){a.classList.remove('active')});
+        link.classList.add('active');
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
