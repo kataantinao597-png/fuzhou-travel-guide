@@ -70,6 +70,7 @@ body {
 }
 
 /* 宣纸纹理 */
+body::before { content: "七溜八溜 不离福州 · 欢喜就好"; position: fixed; bottom: 32px; right: -80px; font-family: var(--font-accent); font-size: 6.5rem; color: var(--fz-dark); opacity: .015; white-space: nowrap; transform: rotate(-15deg); pointer-events: none; z-index: 0; }
 body::after {
   content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   opacity: 0.35;
@@ -117,7 +118,10 @@ body::after {
   padding: 6px 16px; border-radius: 100px;
   transition: all 0.25s var(--ease-out); white-space: nowrap;
 }
-.nav-links a:hover { color: var(--fz-dark); background: var(--fz-dark-08); }
+.nav-links a { position: relative; }
+.nav-links a::after { content: ""; position: absolute; bottom: 2px; left: 50%; width: 0; height: 1.5px; background: var(--fz-red); transition: all .3s var(--ease-out); transform: translateX(-50%); }
+.nav-links a:hover { color: var(--fz-red); background: transparent; }
+.nav-links a:hover::after { width: 60%; }
 .nav-links a.active { color: var(--fz-red); background: rgba(140,36,37,0.06); font-weight: 600; }
 
 /* ===========================================
@@ -129,6 +133,7 @@ body::after {
   background: linear-gradient(170deg, #1E3028 0%, #2A3F33 25%, #3A5342 55%, #4D6455 85%, var(--fz-stone) 100%);
   position: relative; overflow: hidden;
 }
+.hero::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background: linear-gradient(0deg, var(--fz-stone) 0%, transparent 100%); z-index: 1; }
 .hero::before {
   content: ""; position: absolute; inset: 0;
   background:
@@ -303,7 +308,8 @@ body::after {
   transition: background 0.2s;
 }
 .stop-item:last-child { border-bottom: none; }
-.stop-item:hover { background: rgba(250,248,242,0.3); }
+.stop-item:hover { background: rgba(250,248,242,0.3); box-shadow: 0 16px 40px rgba(140,36,37,.08); transform: translateY(-3px); }
+.stop-item { transition: all .4s var(--ease); }
 .stop-marker {
   width: 32px; flex-shrink: 0; text-align: center;
   padding-top: 2px;
@@ -472,6 +478,7 @@ body::after {
 /* ===========================================
    Footer
    =========================================== */
+.footer::before { content: ""; display: block; width: 40px; height: 2px; background: var(--fz-gold); margin: 0 auto 16px; border-radius: 1px; }
 .footer {
   text-align: center; padding: 48px 20px 32px;
   margin-top: calc(var(--grid) * 8);
