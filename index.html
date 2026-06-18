@@ -308,10 +308,7 @@ body::after {
   transition: background 0.2s;
 }
 .stop-item:last-child { border-bottom: none; }
-.stop-item { transition: all .4s var(--ease); }
-.stop-item:hover { background: rgba(250,248,242,0.6); box-shadow: 0 20px 50px rgba(140,36,37,.12); transform: translateY(-4px) perspective(800px) rotateX(1deg); }
-.stop-item:hover img { transform: scale(1.03); }
-.stop-item img { transition: transform .6s var(--ease); }
+.stop-item:hover { background: rgba(250,248,242,0.3); box-shadow: 0 16px 40px rgba(140,36,37,.08); transform: translateY(-3px); }
 .stop-item { transition: all .4s var(--ease); }
 .stop-marker {
   width: 32px; flex-shrink: 0; text-align: center;
@@ -353,8 +350,6 @@ body::after {
 .stop-highlights {
   display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;
 }
-.stop-tag { transition: transform .2s var(--ease); }
-.stop-tag:hover { transform: scale(1.08); }
 .stop-tag {
   font-size: 0.72rem; font-weight: 600; padding: 3px 10px;
   border-radius: 100px; white-space: nowrap;
@@ -365,8 +360,6 @@ body::after {
 .stop-actions {
   display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px;
 }
-.stop-btn { transition: all .25s var(--ease); }
-.stop-btn:active { transform: scale(.95); }
 .stop-btn {
   display: inline-flex; align-items: center; gap: 4px;
   font-size: 0.75rem; font-weight: 500;
@@ -544,10 +537,6 @@ body::after {
   .more-grid { grid-template-columns: 1fr; }
   .nav-links a { font-size: 0.75rem; padding: 5px 10px; }
 }
-.back-top { position: fixed; bottom: 28px; right: 28px; width: 48px; height: 48px; background: var(--fz-red); color: #fff; border: none; border-radius: 50%; cursor: pointer; z-index: 999; opacity: 0; transform: translateY(20px); transition: all .4s var(--ease); box-shadow: 0 4px 20px rgba(140,36,37,.25); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
-.back-top.visible { opacity: 1; transform: translateY(0); }
-.back-top:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(140,36,37,.35); background: var(--fz-red-light); }
-.back-top:active { transform: scale(.9); }
 /* Scroll reveal */
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -558,7 +547,6 @@ body::after {
 .stat-item:nth-child(3) .stat-num { animation-delay: .3s; }
 /* Floating jasmine particles */
 .jasmine-particle { position: fixed; pointer-events: none; z-index: 0; opacity: 0; font-size: 1.2rem; }
-@keyframes ripple { to { transform: scale(8); opacity: 0; } }
 @keyframes floatUp { 0% { opacity: 0; transform: translateY(0) rotate(0deg); } 20% { opacity: .4; } 100% { opacity: 0; transform: translateY(-120px) rotate(40deg); } }
 /* Nav link active indicator pulse */
 .nav-links a.active::before { content: ""; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; background: var(--fz-red); border-radius: 50%; animation: dotPulse 2s ease-in-out infinite; }
@@ -1091,32 +1079,6 @@ document.addEventListener('DOMContentLoaded', () => {
         $('.nav-links a').forEach(function(a){a.classList.remove('active')});
         link.classList.add('active');
       }
-    });
-  });
-
-  // Back to top button
-  var btt=document.createElement("button");
-  btt.className="back-top";btt.innerHTML="↑";btt.title="回到顶部";
-  btt.onclick=function(){window.scrollTo({top:0,behavior:"smooth"})};
-  document.body.appendChild(btt);
-  window.addEventListener("scroll",function(){btt.classList.toggle("visible",window.scrollY>500)});
-
-  // Ripple effect on buttons
-  document.querySelectorAll(".stop-btn").forEach(function(btn){
-    btn.addEventListener("click",function(e){
-      var r=document.createElement("span");
-      r.style.cssText="position:absolute;border-radius:50%;background:rgba(255,255,255,.4);width:20px;height:20px;left:"+(e.clientX-btn.getBoundingClientRect().left-10)+"px;top:"+(e.clientY-btn.getBoundingClientRect().top-10)+"px;animation:ripple .6s ease-out forwards;pointer-events:none";
-      btn.style.position="relative";btn.style.overflow="hidden";btn.appendChild(r);
-      setTimeout(function(){r.remove()},600);
-    });
-  });
-
-  // Day tab switch animation
-  document.querySelectorAll(".day-tab").forEach(function(tab){
-    tab.addEventListener("click",function(){
-      document.querySelectorAll(".day-content").forEach(function(c){c.style.opacity="0";c.style.transform="translateY(12px)"});
-      var target=document.querySelector(this.getAttribute("data-target"));
-      if(target){setTimeout(function(){target.style.opacity="1";target.style.transform="translateY(0)"},150)}
     });
   });
 })();
